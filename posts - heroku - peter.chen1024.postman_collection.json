@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "003e0d93-025a-435d-bcd6-8d54f9ef1837",
+		"name": "posts - heroku - peter.chen1024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得代辦",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{DOMAIN}}/posts",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增代辦",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Cornell Broadbear\",\r\n    \"content\": \"at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin\",\r\n    \"image\": \"http://dummyimage.com/197x100.png/dddddd/000000\",\r\n    \"tags\": [\r\n        \"謎因\",\r\n        \"電影\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1001\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{DOMAIN}}/posts",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增代辦 - 資料格式錯誤驗證",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": [100,200,300],\r\n    \"content\": [100,200,300],\r\n    \"image\": [100,200,300],\r\n    \"tags\": \"迷因\",\r\n    \"type\": \"god\",\r\n    \"likes\": \"i like\",\r\n    \"comments\": \"i comments\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{DOMAIN}}/posts",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除代辦ALL",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{DOMAIN}}/posts",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除代辦{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{DOMAIN}}/posts/626bb31b0bd697b15c3a33ad",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"posts",
+						"626bb31b0bd697b15c3a33ad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改代辦{id}",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"aaa_update\",\r\n    \"content\": \"bbb_update\",\r\n    \"image\": \"https://ccc_update.com\",\r\n    \"tags\": [\r\n        \"ddd_update\",\r\n        \"eee_update\"\r\n    ],\r\n    \"type\": \"person\",\r\n    \"likes\": 888,\r\n    \"comments\": 6677\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{DOMAIN}}/posts/626bb31b0bd697b15c3a33ad",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"posts",
+						"626bb31b0bd697b15c3a33ad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "預檢請求",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://{{DOMAIN}}/",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PORT",
+			"value": "3005"
+		},
+		{
+			"key": "DOMAIN",
+			"value": "warm-falls-13177.herokuapp.com",
+			"type": "string"
+		}
+	]
+}
