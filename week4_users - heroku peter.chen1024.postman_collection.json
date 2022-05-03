@@ -1,36 +1,36 @@
 {
 	"info": {
-		"_postman_id": "003e0d93-025a-435d-bcd6-8d54f9ef1837",
-		"name": "posts - heroku - peter.chen1024",
+		"_postman_id": "47749100-f17c-40d8-867e-66ebc7844900",
+		"name": "week4_users - heroku peter.chen1024",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "取得代辦",
+			"name": "取得所有",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://{{DOMAIN}}/posts",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/users",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
 					"path": [
-						"posts"
+						"users"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "新增代辦",
+			"name": "新增",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Cornell Broadbear\",\r\n    \"content\": \"at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin\",\r\n    \"image\": \"http://dummyimage.com/197x100.png/dddddd/000000\",\r\n    \"tags\": [\r\n        \"謎因\",\r\n        \"電影\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1001\r\n}",
+					"raw": "{\r\n    \"name\": \"peter.chen\",\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/33.jpg\",\r\n    \"gender\": \"man\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,26 +38,26 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{DOMAIN}}/posts",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/users",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
 					"path": [
-						"posts"
+						"users"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "新增代辦 - 資料格式錯誤驗證",
+			"name": "新增 - 資料格式錯誤驗證",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": [100,200,300],\r\n    \"content\": [100,200,300],\r\n    \"image\": [100,200,300],\r\n    \"tags\": \"迷因\",\r\n    \"type\": \"god\",\r\n    \"likes\": \"i like\",\r\n    \"comments\": \"i comments\"\r\n}",
+					"raw": "{\r\n    \"name\": [100,200,300],\r\n    \"email\": [100,200,300],\r\n    \"photo\": [100,200,300],\r\n    \"gender\": \"apple\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -65,63 +65,63 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{DOMAIN}}/posts",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/users",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
 					"path": [
-						"posts"
+						"users"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "刪除代辦ALL",
+			"name": "刪除所有",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://{{DOMAIN}}/posts",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/users",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
 					"path": [
-						"posts"
+						"users"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "刪除代辦{id}",
+			"name": "刪除 by ID",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://{{DOMAIN}}/posts/626bb31b0bd697b15c3a33ad",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/users/6270fbe0113547594f0c1c03",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
 					"path": [
-						"posts",
-						"626bb31b0bd697b15c3a33ad"
+						"users",
+						"6270fbe0113547594f0c1c03"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "修改代辦{id}",
+			"name": "修改 by ID",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"aaa_update\",\r\n    \"content\": \"bbb_update\",\r\n    \"image\": \"https://ccc_update.com\",\r\n    \"tags\": [\r\n        \"ddd_update\",\r\n        \"eee_update\"\r\n    ],\r\n    \"type\": \"person\",\r\n    \"likes\": 888,\r\n    \"comments\": 6677\r\n}",
+					"raw": "{\r\n    \"name\": \"name_update\",\r\n    \"email\": \"email_update\",\r\n    \"photo\": \"photo_update\",\r\n    \"gender\": \"woman\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -129,14 +129,14 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{DOMAIN}}/posts/626bb31b0bd697b15c3a33ad",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/users/6270fbe0113547594f0c1c03",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
 					"path": [
-						"posts",
-						"626bb31b0bd697b15c3a33ad"
+						"users",
+						"6270fbe0113547594f0c1c03"
 					]
 				}
 			},
@@ -148,8 +148,8 @@
 				"method": "OPTIONS",
 				"header": [],
 				"url": {
-					"raw": "https://{{DOMAIN}}/",
-					"protocol": "https",
+					"raw": "http://{{DOMAIN}}/",
+					"protocol": "http",
 					"host": [
 						"{{DOMAIN}}"
 					],
@@ -183,12 +183,8 @@
 	],
 	"variable": [
 		{
-			"key": "PORT",
-			"value": "3005"
-		},
-		{
 			"key": "DOMAIN",
-			"value": "warm-falls-13177.herokuapp.com",
+			"value": "localhost:3005",
 			"type": "string"
 		}
 	]
