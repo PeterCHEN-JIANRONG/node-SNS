@@ -1,14 +1,15 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require("cors"); // 跨網域設定 cors
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require("cors"); // 跨網域設定 cors
 
 // router
-var indexRouter = require("./routes/index");
-var postsRouter = require("./routes/posts");
+const indexRouter = require("./routes/index");
+const postsRouter = require("./routes/posts");
+const usersRouter = require("./routes/users");
 
-var app = express();
+const app = express();
 
 // Database 資料庫連線
 require("./connections");
@@ -22,5 +23,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/posts", postsRouter);
+app.use("/users", usersRouter);
 
 module.exports = app;
