@@ -1,28 +1,32 @@
 const { errorHandle, successHandle } = require("../services/httpHandle");
 const Post = require("../models/post");
+const User = require("../models/user");
 
 const posts = {
   async getPosts(req, res) {
-    const allPosts = await Post.find();
+    const allPosts = await Post.find().populate({
+      path: "user", // 對應 Post model 的 user field
+      select: "name photo",
+    });
     successHandle(res, allPosts);
   },
   async createPost(req, res) {
     try {
-      const { name, content, image, tags, type, likes, comments } = req.body;
+      const { user, content, image, tags, type, likes, comments } = req.body;
 
       // 前端阻擋 - 欄位格式不正確
-      if (name === undefined) {
-        errorHandle(res, "姓名未填寫");
-      } else if (content === undefined) {
+      if (!user) {
+        errorHandle(res, "使用者ID未填寫");
+      } else if (!content) {
         errorHandle(res, "內容未填寫");
-      } else if (tags === undefined) {
+      } else if (!tags) {
         errorHandle(res, "標籤未填寫");
-      } else if (type === undefined) {
+      } else if (!type) {
         errorHandle(res, "貼文類型未填寫");
       } else {
         // 新增資料
         const postData = {
-          name,
+          user,
           content,
           image,
           tags,
@@ -58,11 +62,10 @@ const posts = {
   },
   async updatePostById(req, res) {
     try {
-      const data = req.body;
-      const { name, content, image, tags, type, likes, comments } = data;
+      const { user, content, image, tags, type, likes, comments } = req.body;
       const { id } = req.params;
       const postData = {
-        name,
+        user,
         content,
         image,
         tags,

@@ -9,19 +9,22 @@ const controllers = {
   },
   async createOne(req, res) {
     try {
-      const { name, email, photo } = req.body;
+      const { name, email, photo, gender } = req.body;
 
       // 前端阻擋 - 欄位格式不正確
       if (!name) {
         errorHandle(res, "姓名未填寫");
       } else if (!email) {
         errorHandle(res, "信箱未填寫");
+      } else if (!gender) {
+        errorHandle(res, "性別未填寫");
       } else {
         // 新增資料
         const data = {
           name,
           email,
           photo,
+          gender,
         };
         const newItem = await User.create(data);
         successHandle(res, newItem);
@@ -51,12 +54,13 @@ const controllers = {
   },
   async updateOneById(req, res) {
     try {
-      const { name, email, photo } = req.body;
+      const { name, email, photo, gender } = req.body;
       const { id } = req.params;
       const data = {
         name,
         email,
         photo,
+        gender,
       };
       const options = {
         new: true, // 回傳更新"後"的資料, default: false 回傳更新"前"的資料

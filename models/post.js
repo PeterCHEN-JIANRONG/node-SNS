@@ -1,11 +1,13 @@
+const { default: mongoose } = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 // Schema
 const postSchema = new Schema(
   {
-    name: {
-      type: String,
-      required: [true, "姓名未填寫"],
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User", // 對應 user model 的 model name
+      required: [true, "使用者ID未填寫"],
     },
     content: {
       type: String,
@@ -37,7 +39,7 @@ const postSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      select: false,
+      // select: false,
     },
   },
   {
