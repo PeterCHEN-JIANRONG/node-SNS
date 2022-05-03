@@ -4,10 +4,18 @@ const User = require("../models/user");
 
 const posts = {
   async getPosts(req, res) {
-    const allPosts = await Post.find().populate({
-      path: "user", // 對應 Post model 的 user field
-      select: "name photo",
-    });
+    // 時間排序
+    const timeSort = req.query.timeSort == "asc" ? "createdAt" : "-createdAt";
+    // 搜尋貼文內容關鍵字
+    const q =
+      req.query.q !== undefined ? { content: new RegExp(req.query.q) } : {};
+
+    const allPosts = await Post.find(q)
+      .populate({
+        path: "user", // 對應 Post model 的 user field
+        select: "name photo",
+      })
+      .sort(timeSort);
     successHandle(res, allPosts);
   },
   async createPost(req, res) {
