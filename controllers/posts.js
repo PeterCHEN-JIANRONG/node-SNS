@@ -13,7 +13,7 @@ const posts = {
     const allPosts = await Post.find(q)
       .populate({
         path: "user", // 對應 Post model 的 user field
-        select: "name photo",
+        select: "name photo", // 關聯後，要撈的欄位資料
       })
       .sort(timeSort);
     successHandle(res, allPosts);
