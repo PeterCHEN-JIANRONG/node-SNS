@@ -1,8 +1,22 @@
 const { errorHandle, successHandle } = require("../services/httpHandle");
 const User = require("../models/user");
 
-// User controllers
-const controllers = {
+// User controller
+const controller = {
+  async getOneById(req, res) {
+    try {
+      const { id } = req.params;
+      const item = await User.findById(id);
+      if (item !== null) {
+        successHandle(res, item);
+      } else {
+        errorHandle(res, "查無此 ID"); // 查無 id
+      }
+    } catch (err) {
+      // 預防: 網址未帶入 id
+      errorHandle(res, err);
+    }
+  },
   async getAll(req, res) {
     const allItems = await User.find();
     successHandle(res, allItems);
@@ -80,4 +94,4 @@ const controllers = {
   },
 };
 
-module.exports = controllers;
+module.exports = controller;

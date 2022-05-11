@@ -1,20 +1,11 @@
 var express = require("express");
 var router = express.Router();
-const PostsControllers = require("../controllers/posts");
+const PostController = require("../controllers/post");
 
-// 取得貼文
-router.get("/", PostsControllers.getPosts);
+// 取得所有貼文
+router.get("/", PostController.getAll);
 
-// 新增貼文
-router.post("/", PostsControllers.createPost);
-
-// 刪除全部貼文
-router.delete("/", PostsControllers.deleteAllPosts);
-
-// 刪除單筆貼文 by Id
-router.delete("/:id", PostsControllers.deletePostById);
-
-// 更新貼文 by Id
-router.patch("/:id", PostsControllers.updatePostById);
+// 刪除所有貼文
+router.delete("/", PostController.deleteAll);
 
 module.exports = router;

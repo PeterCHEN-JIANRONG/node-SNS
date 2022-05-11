@@ -6,7 +6,9 @@ const cors = require("cors"); // 跨網域設定 cors
 
 // router
 const indexRouter = require("./routes/index");
+const postRouter = require("./routes/post");
 const postsRouter = require("./routes/posts");
+const userRouter = require("./routes/user");
 const usersRouter = require("./routes/users");
 
 const app = express();
@@ -22,7 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/post", postRouter);
 app.use("/posts", postsRouter);
+app.use("/user", userRouter);
 app.use("/users", usersRouter);
 
 module.exports = app;

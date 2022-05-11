@@ -2,8 +2,27 @@ const { errorHandle, successHandle } = require("../services/httpHandle");
 const Post = require("../models/post");
 const User = require("../models/user");
 
-const posts = {
-  async getPosts(req, res) {
+// Post controller
+const controller = {
+  async getOneById(req, res) {
+    try {
+      const { id } = req.params;
+      const item = await Post.findById(id).populate({
+        path: "user", // 對應 Post model 的 user field
+        select: "name photo", // 關聯後，要撈的欄位資料
+      });
+
+      if (item !== null) {
+        successHandle(res, item);
+      } else {
+        errorHandle(res, "查無此 ID"); // 查無 id
+      }
+    } catch (err) {
+      // 預防: 網址未帶入 id
+      errorHandle(res, err);
+    }
+  },
+  async getAll(req, res) {
     // 時間排序
     const timeSort = req.query.timeSort == "asc" ? "createdAt" : "-createdAt";
     // 搜尋貼文內容關鍵字
@@ -18,7 +37,7 @@ const posts = {
       .sort(timeSort);
     successHandle(res, allPosts);
   },
-  async createPost(req, res) {
+  async createOne(req, res) {
     try {
       const { user, content, image, tags, type, likes, comments } = req.body;
 
@@ -55,12 +74,12 @@ const posts = {
       errorHandle(res, err);
     }
   },
-  async deleteAllPosts(req, res) {
+  async deleteAll(req, res) {
     await Post.deleteMany({});
     const allPosts = await Post.find();
     successHandle(res, allPosts);
   },
-  async deletePostById(req, res) {
+  async deleteOneById(req, res) {
     try {
       const { id } = req.params;
       const deletePost = await Post.findByIdAndDelete(id);
@@ -74,7 +93,7 @@ const posts = {
       errorHandle(res, err);
     }
   },
-  async updatePostById(req, res) {
+  async updateOneById(req, res) {
     try {
       const { user, content, image, tags, type, likes, comments } = req.body;
       const { id } = req.params;
@@ -105,4 +124,4 @@ const posts = {
   },
 };
 
-module.exports = posts;
+module.exports = controller;
