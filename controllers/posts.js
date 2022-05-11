@@ -42,8 +42,14 @@ const posts = {
           likes,
           comments,
         };
-        const newPost = await Post.create(postData);
-        successHandle(res, newPost);
+
+        const findUser = await User.findById(user).exec(); // 確認使用者ID存在
+        if (findUser) {
+          const newPost = await Post.create(postData);
+          successHandle(res, newPost);
+        } else {
+          errorHandle(res, "使用者ID不存在");
+        }
       }
     } catch (err) {
       errorHandle(res, err);
