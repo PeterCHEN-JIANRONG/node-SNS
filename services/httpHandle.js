@@ -1,6 +1,6 @@
 const errorHandle = (res, err, httpCode = 400) => {
   const obj = {
-    status: false,
+    status: "error",
     message: "欄位未填寫正確或無此 id",
   };
 
@@ -14,7 +14,7 @@ const errorHandle = (res, err, httpCode = 400) => {
 
 const successHandle = (res, data, message = "") => {
   const obj = {
-    status: true,
+    status: "success",
     data,
   };
   if (message !== "") {
