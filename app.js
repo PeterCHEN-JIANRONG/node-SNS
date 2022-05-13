@@ -3,6 +3,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors"); // 跨網域設定 cors
+const { errorHandle, successHandle } = require("./services/httpHandle");
 
 // router
 const indexRouter = require("./routes/index");
@@ -28,5 +29,10 @@ app.use("/post", postRouter);
 app.use("/posts", postsRouter);
 app.use("/user", userRouter);
 app.use("/users", usersRouter);
+
+// 404 not found
+app.use((req, res, next) => {
+  errorHandle(res, "無此路由資訊", 404);
+});
 
 module.exports = app;

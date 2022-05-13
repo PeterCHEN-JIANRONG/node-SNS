@@ -23,8 +23,8 @@
 - DATABASE_PASSWORD：自己的password
 
 ## 指令
-- npm start：啟動伺服器
-- nodemon bin/www：開發時使用
+- *npm start*：啟動伺服器
+- *npm run dev*：開發時使用
 
 ## Server 進入點
 - bin/www
