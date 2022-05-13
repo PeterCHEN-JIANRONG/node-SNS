@@ -35,4 +35,13 @@ app.use((req, res, next) => {
   errorHandle(res, "無此路由資訊", 404);
 });
 
+// 500 Internal Server Error
+app.use((err, req, res, next) => {
+  console.log("Internal Server Error");
+  res.status(500).send({
+    status: false,
+    err,
+  });
+});
+
 module.exports = app;
