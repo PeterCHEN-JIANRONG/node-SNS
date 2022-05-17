@@ -66,20 +66,25 @@ app.use((err, req, res, next) => {
     const fields = Object.keys(err.errors);
     err.message = `資料欄位 ${fields} 未填寫正確，請重新輸入！`;
     err.isOperational = true;
+    err.statusCode = 400;
     return resErrorProd(err, res);
   } else if (err.name === "SyntaxError") {
     // JSON 解析錯誤
     err.message = "資料格式未填寫正卻，請重新輸入！";
+    err.statusCode = 400;
     err.isOperational = true;
     return resErrorProd(err, res);
   } else if (err.name === "MongoServerError" && err.code === 11000) {
     // mongoose 錯誤： field 資料重覆, 例如: email
     const field = Object.keys(err.keyValue);
     err.message = `${field} 資料重覆，請重新輸入！`;
+    err.statusCode = 400;
     err.isOperational = true;
     return resErrorProd(err, res);
   } else if (err.name === "CastError" && err.kind === "ObjectId") {
+    // ObjectId 格式錯誤
     err.message = "ID格式錯誤，請重新輸入！";
+    err.statusCode = 400;
     err.isOperational = true;
     return resErrorProd(err, res);
   }
