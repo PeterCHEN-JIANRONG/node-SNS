@@ -1,10 +1,11 @@
-const { errorHandle, successHandle } = require("../services/httpHandle");
+const { successHandle } = require("../services/httpHandle");
 const Post = require("../models/post");
 const User = require("../models/user");
+const appError = require("../services/appError");
 
 // Post controller
 const controller = {
-  async getOneById(req, res) {
+  async getOneById(req, res, next) {
     try {
       const { id } = req.params;
       const item = await Post.findById(id).populate({
@@ -15,14 +16,14 @@ const controller = {
       if (item !== null) {
         successHandle(res, item);
       } else {
-        errorHandle(res, "查無此 ID"); // 查無 id
+        return appError(next, "查無此 ID"); // 查無 id
       }
     } catch (err) {
       // 預防: 網址未帶入 id
-      errorHandle(res, err);
+      return appError(next, err.message);
     }
   },
-  async getAll(req, res) {
+  async getAll(req, res, next) {
     // 時間排序
     const timeSort = req.query.timeSort == "asc" ? "createdAt" : "-createdAt";
     // 搜尋貼文內容關鍵字
@@ -37,19 +38,19 @@ const controller = {
       .sort(timeSort);
     successHandle(res, allPosts);
   },
-  async createOne(req, res) {
+  async createOne(req, res, next) {
     try {
       const { user, content, image, tags, type, likes, comments } = req.body;
 
       // 前端阻擋 - 欄位格式不正確
       if (!user) {
-        errorHandle(res, "使用者ID未填寫");
+        return appError(next, "使用者ID未填寫");
       } else if (!content) {
-        errorHandle(res, "內容未填寫");
+        return appError(next, "內容未填寫");
       } else if (!tags) {
-        errorHandle(res, "標籤未填寫");
+        return appError(next, "標籤未填寫");
       } else if (!type) {
-        errorHandle(res, "貼文類型未填寫");
+        return appError(next, "貼文類型未填寫");
       } else {
         // 新增資料
         const postData = {
@@ -67,33 +68,33 @@ const controller = {
           const newPost = await Post.create(postData);
           successHandle(res, newPost);
         } else {
-          errorHandle(res, "使用者ID不存在");
+          return appError(next, "使用者ID不存在");
         }
       }
     } catch (err) {
-      errorHandle(res, err);
+      return appError(next, err.message);
     }
   },
-  async deleteAll(req, res) {
+  async deleteAll(req, res, next) {
     await Post.deleteMany({});
     const allPosts = await Post.find();
     successHandle(res, allPosts);
   },
-  async deleteOneById(req, res) {
+  async deleteOneById(req, res, next) {
     try {
       const { id } = req.params;
       const deletePost = await Post.findByIdAndDelete(id);
       if (deletePost !== null) {
         successHandle(res, deletePost); // 單筆刪除成功
       } else {
-        errorHandle(res, "查無此 ID"); // 查無 id
+        return appError(next, "查無此 ID");
       }
     } catch (err) {
       // 預防: 網址未帶入 id
-      errorHandle(res, err);
+      return appError(next, err.message);
     }
   },
-  async updateOneById(req, res) {
+  async updateOneById(req, res, next) {
     try {
       const { user, content, image, tags, type, likes, comments } = req.body;
       const { id } = req.params;
@@ -115,11 +116,11 @@ const controller = {
       if (editPost !== null) {
         successHandle(res, editPost);
       } else {
-        errorHandle(res, "查無此 ID"); // 查無 id
+        return appError(next, "查無此 ID");
       }
     } catch (err) {
       // 預防: JSON 解析失敗、網址未帶入 id
-      errorHandle(res, err);
+      return appError(next, err.message);
     }
   },
 };

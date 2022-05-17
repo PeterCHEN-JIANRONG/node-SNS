@@ -51,7 +51,8 @@ app.use((req, res, next) => {
 
 // express 錯誤處理
 app.use((err, req, res, next) => {
-  errorHandle(res, err, 500);
+  const statusCode = err.statusCode || 500;
+  errorHandle(res, err, statusCode);
 });
 
 module.exports = app;
