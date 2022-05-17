@@ -1,4 +1,8 @@
 const { Schema, model } = require("mongoose");
+var validateEmail = function (email) {
+  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email);
+};
 
 // Schema
 const userSchema = new Schema(
@@ -13,6 +17,7 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
       select: false, // 信箱必須隱藏
+      validate: [validateEmail, "信箱格式錯誤"],
     },
     photo: String,
     gender: {

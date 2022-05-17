@@ -4,7 +4,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors"); // 跨網域設定 cors
 const axios = require("axios");
-const { errorHandle, successHandle } = require("./services/httpHandle");
+const { errorHandle } = require("./services/httpHandle");
+const { resErrorDev, resErrorProd } = require("./services/resErrorHandle");
 
 // router
 const indexRouter = require("./routes/index");
@@ -51,8 +52,39 @@ app.use((req, res, next) => {
 
 // express 錯誤處理
 app.use((err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  errorHandle(res, err, statusCode);
+  err.statusCode = err.statusCode || 500;
+
+  // dev
+  if (process.env.NODE_ENV === "dev") {
+    return resErrorDev(err, res);
+  }
+
+  // production
+  // 可預期的 NPM 錯誤
+  if (err.name === "ValidationError") {
+    // 欄位未輸入、格式錯誤
+    const fields = Object.keys(err.errors);
+    err.message = `資料欄位 ${fields} 未填寫正確，請重新輸入！`;
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  } else if (err.name === "SyntaxError") {
+    // JSON 解析錯誤
+    err.message = "資料格式未填寫正卻，請重新輸入！";
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  } else if (err.name === "MongoServerError" && err.code === 11000) {
+    // mongoose 錯誤： field 資料重覆, 例如: email
+    const field = Object.keys(err.keyValue);
+    err.message = `${field} 資料重覆，請重新輸入！`;
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  } else if (err.name === "CastError" && err.kind === "ObjectId") {
+    err.message = "ID格式錯誤，請重新輸入！";
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  }
+  // 非預期的 NPM 錯誤
+  resErrorProd(err, res);
 });
 
 module.exports = app;

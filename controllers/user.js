@@ -14,8 +14,7 @@ const controller = {
         return appError(next, "查無此 ID"); // 查無 id
       }
     } catch (err) {
-      // 預防: 網址未帶入 id
-      return appError(next, err.message);
+      next(err);
     }
   },
   async getAll(req, res, next) {
@@ -45,7 +44,7 @@ const controller = {
         successHandle(res, newItem);
       }
     } catch (err) {
-      return appError(next, err.message);
+      next(err);
     }
   },
   async deleteAll(req, res, next) {
@@ -63,8 +62,7 @@ const controller = {
         return appError(next, "查無此 ID");
       }
     } catch (err) {
-      // 預防: 網址未帶入 id
-      return appError(next, err.message);
+      next(err);
     }
   },
   async updateOneById(req, res, next) {
@@ -89,8 +87,7 @@ const controller = {
         return appError(next, "查無此 ID");
       }
     } catch (err) {
-      // 預防: JSON 解析失敗、網址未帶入 id
-      return appError(next, err.message);
+      next(err);
     }
   },
 };
