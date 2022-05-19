@@ -2,27 +2,8 @@ const { successHandle } = require("../services/httpHandle");
 const User = require("../models/userModel");
 const appError = require("../services/appError");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const validator = require("validator");
-
-const generateSendJWT = (user, statusCode, res) => {
-  // 產生 JWT token 憑證
-  const token = jwt.sign(
-    { id: user._id, name: user.name },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: process.env.JWT_EXPIRES_DAY,
-    }
-  );
-  user.password = undefined; // 預防有人誤把密碼帶回去，先移除掉
-  res.status(statusCode).json({
-    status: "success",
-    user: {
-      token,
-      name: user.name,
-    },
-  });
-};
+const { generateSendJWT } = require("../services/auth");
 
 // User controller
 const controller = {
@@ -148,7 +129,7 @@ const controller = {
     }
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
-      return appError(next, "帳號或密碼錯誤", 400); // 無此用戶 > 防止駭客猜帳號, 回應罐頭訊息
+      return appError(next, "帳號或密碼錯誤", 400); // 查無用戶 Email > 防止駭客猜帳號, 回應罐頭訊息
     }
 
     const auth = await bcrypt.compare(password, user.password);
@@ -159,9 +140,10 @@ const controller = {
     generateSendJWT(user, 200, res);
   },
   async getProfile(req, res, next) {
+    const { user } = req; // 經 isAuth 驗證後夾帶的 user
     res.status(200).json({
       status: "success",
-      user: req.user, // 將 isAuth 驗證後夾帶的 user 回傳
+      user,
     });
   },
   async updatePassword(req, res, next) {
