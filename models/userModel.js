@@ -23,7 +23,7 @@ const userSchema = new Schema(
     sex: {
       type: String,
       enum: ["male", "female"],
-      required: [true, "請輸入您的性別"],
+      // required: [true, "請輸入您的性別"],
     },
     password: {
       type: String,

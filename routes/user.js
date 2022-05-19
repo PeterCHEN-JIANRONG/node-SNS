@@ -21,4 +21,10 @@ router.get("/users/", handleErrorAsync(UserController.getAll));
 // 刪除全部
 router.delete("/users/", handleErrorAsync(UserController.deleteAll));
 
+// 用戶註冊
+router.post("/user/sign_up", handleErrorAsync(UserController.signUp));
+
+// 用戶註冊
+router.post("/user/sign_in", handleErrorAsync(UserController.signIn));
+
 module.exports = router;
