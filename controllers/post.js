@@ -1,6 +1,6 @@
 const { successHandle } = require("../services/httpHandle");
-const Post = require("../models/post");
-const User = require("../models/user");
+const Post = require("../models/postModel");
+const User = require("../models/userModel");
 const appError = require("../services/appError");
 
 // Post controller

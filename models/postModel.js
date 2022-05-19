@@ -7,7 +7,7 @@ const postSchema = new Schema(
     user: {
       type: mongoose.Schema.ObjectId,
       ref: "User", // 對應 user model 的 model name
-      required: [true, "使用者ID未填寫"],
+      required: [true, "使用者 ID 未填寫"],
     },
     content: {
       type: String,
@@ -15,7 +15,7 @@ const postSchema = new Schema(
     },
     image: {
       type: String,
-      default: null,
+      default: "",
     },
     tags: [
       {

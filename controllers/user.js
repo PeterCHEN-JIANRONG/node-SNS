@@ -1,5 +1,5 @@
 const { successHandle } = require("../services/httpHandle");
-const User = require("../models/user");
+const User = require("../models/userModel");
 const appError = require("../services/appError");
 
 // User controller
