@@ -34,21 +34,20 @@ const controller = {
     successHandle(res, allPosts);
   },
   async createOne(req, res, next) {
-    const { user, content, image, tags, type, likes, comments } = req.body;
+    const { content, image, tags, type, likes, comments } = req.body;
 
-    // 前端阻擋 - 欄位格式不正確
-    if (!user) {
-      return appError(next, "使用者ID未填寫");
-    } else if (!content) {
+    // 欄位格式不正確
+    if (!content) {
       return appError(next, "內容未填寫");
     } else if (!tags) {
       return appError(next, "標籤未填寫");
     } else if (!type) {
       return appError(next, "貼文類型未填寫");
     } else {
-      // 新增資料
+      // 新增貼文
+      const { id } = req.user; // isAuth middleware 取得的 user
       const postData = {
-        user,
+        user: id,
         content,
         image,
         tags,
@@ -57,13 +56,9 @@ const controller = {
         comments,
       };
 
-      const findUser = await User.findById(user).exec(); // 確認使用者ID存在
-      if (findUser) {
-        const newPost = await Post.create(postData);
-        successHandle(res, newPost);
-      } else {
-        return appError(next, "使用者ID不存在");
-      }
+      // 經過 isAuth, 用戶id一定存在, 不用再驗證用戶是否存在, 可直接新增貼文
+      const newPost = await Post.create(postData);
+      successHandle(res, newPost);
     }
   },
   async deleteAll(req, res, next) {

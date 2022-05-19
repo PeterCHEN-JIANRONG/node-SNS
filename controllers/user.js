@@ -171,10 +171,6 @@ const controller = {
       password: newPassword,
     });
 
-    if (!user) {
-      return appError(next, "查無用戶資料", 400);
-    }
-
     generateSendJWT(user, 200, res);
   },
 };

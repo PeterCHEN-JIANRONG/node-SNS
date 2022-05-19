@@ -2,12 +2,13 @@ var express = require("express");
 var router = express.Router();
 const PostController = require("../controllers/post");
 const handleErrorAsync = require("../services/handleErrorAsync");
+const { isAuth } = require("../services/auth");
 
 // 取得單筆貼文 by Id
 router.get("/post/:id", handleErrorAsync(PostController.getOneById));
 
 // 新增貼文
-router.post("/post/", handleErrorAsync(PostController.createOne));
+router.post("/post/", isAuth, handleErrorAsync(PostController.createOne));
 
 // 刪除單筆貼文 by Id
 router.delete("/post/:id", handleErrorAsync(PostController.deleteOneById));
