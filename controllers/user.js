@@ -18,22 +18,29 @@ const controller = {
     successHandle(res, allItems);
   },
   async createOne(req, res, next) {
-    const { name, email, photo, gender } = req.body;
+    const { name, email, photo, sex, password } = req.body;
 
     // 前端阻擋 - 欄位格式不正確
     if (!name) {
       return appError(next, "姓名未填寫");
     } else if (!email) {
       return appError(next, "信箱未填寫");
-    } else if (!gender) {
+    } else if (!sex) {
       return appError(next, "性別未填寫");
+    } else if (!["male", "female"].includes(sex)) {
+      return appError(next, `性別欄位錯誤，須為 'male' 或 'female'`);
+    } else if (!password) {
+      return appError(next, "請輸入密碼");
+    } else if (password.length < 8) {
+      return appError(next, "密碼最少 8 碼");
     } else {
       // 新增資料
       const data = {
         name,
         email,
         photo,
-        gender,
+        sex,
+        password,
       };
       const newItem = await User.create(data);
       successHandle(res, newItem);
@@ -54,13 +61,14 @@ const controller = {
     }
   },
   async updateOneById(req, res, next) {
-    const { name, email, photo, gender } = req.body;
+    const { name, email, photo, sex, password } = req.body;
     const { id } = req.params;
     const data = {
       name,
       email,
       photo,
-      gender,
+      sex,
+      password,
     };
     const options = {
       new: true, // 回傳更新"後"的資料, default: false 回傳更新"前"的資料
