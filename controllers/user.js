@@ -164,6 +164,37 @@ const controller = {
       user: req.user, // 將 isAuth 驗證後夾帶的 user 回傳
     });
   },
+  async updatePassword(req, res, next) {
+    const { password, confirmPassword } = req.body; // 新的密碼
+    // 內容不可為空
+    if (!password) {
+      return appError(next, "密碼未填寫", 400);
+    } else if (!confirmPassword) {
+      return appError(next, "確認密碼未填寫", 400);
+    }
+
+    if (password !== confirmPassword) {
+      return appError(next, "密碼不一致！", 400);
+    }
+
+    if (!validator.isLength(password, { min: 8 })) {
+      return appError(next, "密碼字數低於 8 碼", 400);
+    }
+
+    const newPassword = await bcrypt.hash(password, 12); // 加密新密碼
+
+    // 已經過 isAuth middleware 驗證登入, 表示登入有效, 直接修改密碼
+    const { id } = req.user;
+    const user = await User.findByIdAndUpdate(id, {
+      password: newPassword,
+    });
+
+    if (!user) {
+      return appError(next, "查無用戶資料", 400);
+    }
+
+    generateSendJWT(user, 200, res);
+  },
 };
 
 module.exports = controller;

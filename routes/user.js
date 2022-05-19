@@ -35,7 +35,7 @@ const isAuth = handleErrorAsync(async (req, res, next) => {
   });
   const currentUser = await User.findById(decoded.id);
   if (!currentUser) {
-    return next(appError(next, "無用戶資料", 400));
+    return next(appError(next, "查無用戶資料", 400));
   }
 
   req.user = currentUser;
@@ -71,6 +71,13 @@ router.get(
   "/user/profile",
   isAuth,
   handleErrorAsync(UserController.getProfile)
+);
+
+// 用戶更新密碼
+router.post(
+  "/user/updatePassword",
+  isAuth,
+  handleErrorAsync(UserController.updatePassword)
 );
 
 module.exports = router;
