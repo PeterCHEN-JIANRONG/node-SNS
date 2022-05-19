@@ -146,6 +146,24 @@ const controller = {
       user,
     });
   },
+  async updateProfile(req, res, next) {
+    const { id } = req.user; // 經 isAuth 驗證後夾帶的 user
+    const { name, photo, sex } = req.body;
+    const data = {
+      name,
+      photo,
+      sex,
+    };
+    const options = {
+      new: true, // 回傳更新"後"的資料, default: false 回傳更新"前"的資料
+      runValidators: true, // 驗證修改資料
+    };
+    const user = await User.findByIdAndUpdate(id, data, options);
+    res.send({
+      status: "success",
+      user,
+    });
+  },
   async updatePassword(req, res, next) {
     const { password, confirmPassword } = req.body; // 新的密碼
     // 內容不可為空

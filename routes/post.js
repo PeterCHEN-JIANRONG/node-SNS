@@ -17,7 +17,7 @@ router.delete("/post/:id", handleErrorAsync(PostController.deleteOneById));
 router.patch("/post/:id", handleErrorAsync(PostController.updateOneById));
 
 // 取得所有貼文
-router.get("/posts/", handleErrorAsync(PostController.getAll));
+router.get("/posts/", isAuth, handleErrorAsync(PostController.getAll));
 
 // 刪除所有貼文
 router.delete("/posts/", handleErrorAsync(PostController.deleteAll));
