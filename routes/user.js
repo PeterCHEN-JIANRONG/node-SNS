@@ -4,15 +4,21 @@ const UserController = require("../controllers/user");
 const handleErrorAsync = require("../services/handleErrorAsync");
 
 // 取得單筆 by Id
-router.get("/:id", handleErrorAsync(UserController.getOneById));
+router.get("/user/:id", handleErrorAsync(UserController.getOneById));
 
 // 新增
-router.post("/", handleErrorAsync(UserController.createOne));
+router.post("/user/", handleErrorAsync(UserController.createOne));
 
 // 刪除單筆 by Id
-router.delete("/:id", handleErrorAsync(UserController.deleteOneById));
+router.delete("/user/:id", handleErrorAsync(UserController.deleteOneById));
 
 // 更新 by Id
-router.patch("/:id", handleErrorAsync(UserController.updateOneById));
+router.patch("/user/:id", handleErrorAsync(UserController.updateOneById));
+
+// 取得全部
+router.get("/users/", handleErrorAsync(UserController.getAll));
+
+// 刪除全部
+router.delete("/users/", handleErrorAsync(UserController.deleteAll));
 
 module.exports = router;

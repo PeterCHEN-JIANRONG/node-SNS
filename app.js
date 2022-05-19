@@ -10,9 +10,7 @@ const { resErrorDev, resErrorProd } = require("./services/resErrorHandle");
 // router
 const indexRouter = require("./routes/index");
 const postRouter = require("./routes/post");
-const postsRouter = require("./routes/posts");
 const userRouter = require("./routes/user");
-const usersRouter = require("./routes/users");
 
 // 程式出現重大錯誤時
 process.on("uncaughtException", (err) => {
@@ -39,11 +37,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// 路由
 app.use("/", indexRouter);
-app.use("/post", postRouter);
-app.use("/posts", postsRouter);
-app.use("/user", userRouter);
-app.use("/users", usersRouter);
+app.use("/", postRouter); // post
+app.use("/", userRouter); // user
 
 // 404 not found 錯誤
 app.use((req, res, next) => {
