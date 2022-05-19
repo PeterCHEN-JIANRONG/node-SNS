@@ -158,6 +158,12 @@ const controller = {
     // 產生 JWT 憑證, 200: 請求成功
     generateSendJWT(user, 200, res);
   },
+  async getProfile(req, res, next) {
+    res.status(200).json({
+      status: "success",
+      user: req.user, // 將 isAuth 驗證後夾帶的 user 回傳
+    });
+  },
 };
 
 module.exports = controller;
