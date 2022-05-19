@@ -3,8 +3,8 @@ const handleErrorAsync = require("../services/handleErrorAsync");
 const appError = require("../services/appError");
 const User = require("../models/userModel");
 
+// 產生 JWT token 憑證
 const generateSendJWT = (user, statusCode, res) => {
-  // 產生 JWT token 憑證
   const token = jwt.sign(
     { id: user._id, name: user.name },
     process.env.JWT_SECRET,

@@ -76,10 +76,11 @@ const controller = {
     }
   },
   async updateOneById(req, res, next) {
-    const { user, content, image, tags, type, likes, comments } = req.body;
-    const { id } = req.params;
-    const postData = {
-      user,
+    const { content, image, tags, type, likes, comments } = req.body;
+    const userId = req.user.id; // 用戶ID
+    const postId = req.params.id; // 貼文ID
+
+    const data = {
       content,
       image,
       tags,
@@ -91,13 +92,14 @@ const controller = {
       new: true, // 回傳更新"後"的資料, default: false 回傳更新"前"的資料
       runValidators: true, // 驗證修改資料
     };
-    const editPost = await Post.findByIdAndUpdate(id, postData, options);
-
-    if (editPost !== null) {
-      successHandle(res, editPost);
-    } else {
-      return appError(next, "查無此 ID");
+    const post = await Post.findById(postId);
+    if (userId !== post.user.toString()) {
+      // 若貼文的user 與 登入者Id 不同，則不可修改
+      return appError(next, "您無權限修改");
     }
+
+    const editPost = await Post.findByIdAndUpdate(postId, data, options);
+    successHandle(res, editPost);
   },
 };
 
