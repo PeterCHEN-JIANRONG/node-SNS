@@ -1,0 +1,999 @@
+{
+	"info": {
+		"_postman_id": "ba9b8d95-19d6-4875-88ea-6b14b3c02412",
+		"name": "week6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2759792"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "前台",
+					"item": [
+						{
+							"name": "用戶相關",
+							"item": [
+								{
+									"name": "用戶註冊",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Aurora\",\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_30_8ab46617938c195cadf80bc11a96ce906a47c110.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/user/sign_up",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"sign_up"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/user/sign_in",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"yy342@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/user/sign_in",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入3",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/user/sign_in",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "更新用戶密碼(需登入)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3MDQ0LCJleHAiOjE2NTM2MzE4NDR9.sSOj2a2mMpZZ_CXOqkZZuf_AxEiEQXIIuqNszOnumHY",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/user/updatePassword",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"updatePassword"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "取得用戶資料(需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3MDQ0LCJleHAiOjE2NTM2MzE4NDR9.sSOj2a2mMpZZ_CXOqkZZuf_AxEiEQXIIuqNszOnumHY",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/user/profile",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "更新用戶資料(需登入)",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3MTQ3LCJleHAiOjE2NTM2MzE5NDd9.Cs1zHPWCk-c8TpkI1ii7lc_dIaVegHi1rP5e04ssU60",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"peter.chen\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/33.jpg\",\r\n    \"sex\": \"male\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/user/profile",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"user",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "貼文相關",
+							"item": [
+								{
+									"name": "取得所有貼文(需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/posts",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"posts"
+											],
+											"query": [
+												{
+													"key": "timeSort",
+													"value": "asc",
+													"description": "貼文時間排序，asc舊到新；desc新到舊",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "吃",
+													"description": "貼文關鍵字搜尋",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "取得單筆貼文 by 貼文ID (需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/post/62867b6e13fde1ed0324bbb9",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"post",
+												"62867b6e13fde1ed0324bbb9"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "新增貼文(需登入)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\": \"我想去日本\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/post",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"post"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "修改貼文by 貼文ID(需登入, 且為PO文者)",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"type": "text",
+												"description": "需登入，且為該筆貼文的PO文者"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\": \"我想去日本_3\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/post/6287335b0d6d45fae5736c66",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"post",
+												"6287335b0d6d45fae5736c66"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "後台工具",
+					"item": [
+						{
+							"name": "用戶相關",
+							"item": [
+								{
+									"name": "取得所有用戶",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/admin/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"admin",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除所有用戶",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/admin/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"admin",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除單筆用戶 by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/admin/user/6285fd85b696b0c68e3f1b27",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"admin",
+												"user",
+												"6285fd85b696b0c68e3f1b27"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "貼文相關",
+							"item": [
+								{
+									"name": "刪除所有貼文",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/admin/posts",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"admin",
+												"posts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除單筆貼文 by 貼文ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/admin/post/62867b2113fde1ed0324bbac",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"admin",
+												"post",
+												"62867b2113fde1ed0324bbac"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Heroku",
+			"item": [
+				{
+					"name": "前台",
+					"item": [
+						{
+							"name": "用戶相關",
+							"item": [
+								{
+									"name": "用戶註冊",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Chloe\",\r\n    \"email\": \"chloeWang@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_27_5a94a297efb15caf0e3d769ce1694953e8bf33e2.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/sign_up",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"sign_up"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"chloeWang@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/sign_in",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/sign_in",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"yy342@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/sign_in",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "用戶登入3",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/sign_in",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"sign_in"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "更新用戶密碼(需登入)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTMzNCwiZXhwIjoxNjUzNjM0MTM0fQ.XB0jI8Ct3zqKwFuePZc60VhlQoWF1cb2j0gOhAij8Gk",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/updatePassword",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"updatePassword"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "取得用戶資料(需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI5NDI5LCJleHAiOjE2NTM2MzQyMjl9.woCiwJ7LzH56bgvsuv3eQ_FQVtfPvstxYYnip3C3zYM",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{API_URL}}/user/profile",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "更新用戶資料(需登入)",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI5NDI5LCJleHAiOjE2NTM2MzQyMjl9.woCiwJ7LzH56bgvsuv3eQ_FQVtfPvstxYYnip3C3zYM",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"peter.chen\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/33.jpg\",\r\n    \"sex\": \"male\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/user/profile",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"user",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "貼文相關",
+							"item": [
+								{
+									"name": "取得所有貼文(需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{API_URL}}/posts",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"posts"
+											],
+											"query": [
+												{
+													"key": "timeSort",
+													"value": "asc",
+													"description": "貼文時間排序，asc舊到新；desc新到舊",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "吃",
+													"description": "貼文關鍵字搜尋",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "取得單筆貼文 by 貼文ID (需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{API_URL}}/post/6287335b0d6d45fae5736c66",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"post",
+												"6287335b0d6d45fae5736c66"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "新增貼文(需登入)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\": \"我想吃拉麵\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/post",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"post"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "修改貼文by 貼文ID(需登入, 且為PO文者)",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"type": "text",
+												"description": "需登入，且為該筆貼文的PO文者"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\": \"我想吃拉麵3\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/post/62873ae965a05229479e14da",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"post",
+												"62873ae965a05229479e14da"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "後台工具",
+					"item": [
+						{
+							"name": "用戶相關",
+							"item": [
+								{
+									"name": "取得所有用戶",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/admin/users",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"admin",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除所有用戶",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/admin/users",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"admin",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除單筆用戶 by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/admin/user/6287398f65a05229479e14ab",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"admin",
+												"user",
+												"6287398f65a05229479e14ab"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "貼文相關",
+							"item": [
+								{
+									"name": "刪除所有貼文",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/admin/posts",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"admin",
+												"posts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除單筆貼文 by 貼文ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{API_URL}}/admin/post/62867b2113fde1ed0324bbac",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"admin",
+												"post",
+												"62867b2113fde1ed0324bbac"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "https://pacific-citadel-47505.herokuapp.com"
+		}
+	]
+}
