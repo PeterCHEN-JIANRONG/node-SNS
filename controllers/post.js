@@ -33,6 +33,26 @@ const controller = {
       .sort(timeSort);
     successHandle(res, allPosts);
   },
+  async getPostsByUserId(req, res, next) {
+    // 時間排序
+    const timeSort = req.query.timeSort == "asc" ? "createdAt" : "-createdAt";
+    
+    const { id } = req.params; // user ID
+    const filter = {user:id};
+
+    // 搜尋貼文內容關鍵字
+    if(req.query.q !== undefined){
+      filter.content = new RegExp(req.query.q)
+    }
+
+    const allPosts = await Post.find(filter)
+      .populate({
+        path: "user", // 對應 Post model 的 user field
+        select: "name photo", // 關聯後，要撈的欄位資料
+      })
+      .sort(timeSort);
+    successHandle(res, allPosts);
+  },
   async createOne(req, res, next) {
     const { content, image, tags, type, likes, comments } = req.body;
 

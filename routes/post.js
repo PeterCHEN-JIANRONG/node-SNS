@@ -10,6 +10,9 @@ router.get("/post/:id", isAuth, handleErrorAsync(PostController.getOneById));
 // 取得所有貼文
 router.get("/posts/", isAuth, handleErrorAsync(PostController.getAll));
 
+// 取得個人貼文 by userId
+router.get("/posts/:id", isAuth, handleErrorAsync(PostController.getPostsByUserId));
+
 // 新增貼文
 router.post("/post/", isAuth, handleErrorAsync(PostController.createOne));
 
