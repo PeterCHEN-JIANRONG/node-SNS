@@ -30,12 +30,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/user/sign_up",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/sign_up",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"sign_up"
@@ -59,12 +57,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/user/sign_in",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/sign_in",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"sign_in"
@@ -88,12 +84,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/user/sign_in",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/sign_in",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"sign_in"
@@ -117,12 +111,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/user/sign_in",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/sign_in",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"sign_in"
@@ -138,7 +130,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3MDQ0LCJleHAiOjE2NTM2MzE4NDR9.sSOj2a2mMpZZ_CXOqkZZuf_AxEiEQXIIuqNszOnumHY",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
@@ -152,12 +144,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/user/updatePassword",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/updatePassword",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"updatePassword"
@@ -173,17 +163,15 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3MDQ0LCJleHAiOjE2NTM2MzE4NDR9.sSOj2a2mMpZZ_CXOqkZZuf_AxEiEQXIIuqNszOnumHY",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"url": {
-											"raw": "http://localhost:3000/user/profile",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/profile",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"profile"
@@ -199,13 +187,13 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3MTQ3LCJleHAiOjE2NTM2MzE5NDd9.Cs1zHPWCk-c8TpkI1ii7lc_dIaVegHi1rP5e04ssU60",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"peter.chen\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/33.jpg\",\r\n    \"sex\": \"male\"\r\n}",
+											"raw": "{\r\n    \"name\": \"peter.chen_update\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/35.jpg\",\r\n    \"gender\": \"man\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -213,12 +201,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/user/profile",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/user/profile",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"user",
 												"profile"
@@ -239,17 +225,15 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"url": {
-											"raw": "http://localhost:3000/posts",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/posts",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"posts"
 											],
@@ -272,26 +256,62 @@
 									"response": []
 								},
 								{
-									"name": "取得單筆貼文 by 貼文ID (需登入)",
+									"name": "取得個人貼文 by 用戶ID(需登入)",
 									"request": {
 										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"url": {
-											"raw": "http://localhost:3000/post/62867b6e13fde1ed0324bbb9",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/posts/6286762f2d12214324889cb9",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
+											"path": [
+												"posts",
+												"6286762f2d12214324889cb9"
+											],
+											"query": [
+												{
+													"key": "timeSort",
+													"value": "asc",
+													"description": "貼文時間排序，asc舊到新；desc新到舊",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "吃",
+													"description": "貼文關鍵字搜尋",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "取得單筆貼文 by 貼文ID(需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{API_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{LOCAL_API}}/post/628c6315e641c7ce84dcf439",
+											"host": [
+												"{{LOCAL_API}}"
+											],
 											"path": [
 												"post",
-												"62867b6e13fde1ed0324bbb9"
+												"628c6315e641c7ce84dcf439"
 											]
 										}
 									},
@@ -304,13 +324,13 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我想去日本\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"raw": "{\r\n    \"content\": \"今天下大雨\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -318,12 +338,10 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/post",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/post",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"post"
 											]
@@ -332,20 +350,20 @@
 									"response": []
 								},
 								{
-									"name": "修改貼文by 貼文ID(需登入, 且為PO文者)",
+									"name": "修改貼文 by 貼文ID(需登入, 且為原本PO文者)",
 									"request": {
 										"method": "PATCH",
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI3NTQ4LCJleHAiOjE2NTM2MzIzNDh9.Qf-tY0zAeI4vw6ZZR8RN6rJ9GiFYyxcYj4hn3CX8_i8",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text",
 												"description": "需登入，且為該筆貼文的PO文者"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我想去日本_3\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"raw": "{\r\n    \"content\": \"我被修改了4\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -353,15 +371,13 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/post/6287335b0d6d45fae5736c66",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/post/628c6315e641c7ce84dcf439",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"post",
-												"6287335b0d6d45fae5736c66"
+												"628c6315e641c7ce84dcf439"
 											]
 										}
 									},
@@ -383,12 +399,10 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/admin/users",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/admin/users",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"admin",
 												"users"
@@ -403,12 +417,10 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/admin/users",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/admin/users",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"admin",
 												"users"
@@ -423,16 +435,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/admin/user/6285fd85b696b0c68e3f1b27",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/admin/user/628c6415e641c7ce84dcf45a",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"admin",
 												"user",
-												"6285fd85b696b0c68e3f1b27"
+												"628c6415e641c7ce84dcf45a"
 											]
 										}
 									},
@@ -449,12 +459,10 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/admin/posts",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/admin/posts",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"admin",
 												"posts"
@@ -469,16 +477,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/admin/post/62867b2113fde1ed0324bbac",
-											"protocol": "http",
+											"raw": "{{LOCAL_API}}/admin/post/628c5e21e641c7ce84dcf3e1",
 											"host": [
-												"localhost"
+												"{{LOCAL_API}}"
 											],
-											"port": "3000",
 											"path": [
 												"admin",
 												"post",
-												"62867b2113fde1ed0324bbac"
+												"628c5e21e641c7ce84dcf3e1"
 											]
 										}
 									},
@@ -506,7 +512,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"Chloe\",\r\n    \"email\": \"chloeWang@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_27_5a94a297efb15caf0e3d769ce1694953e8bf33e2.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+											"raw": "{\r\n    \"name\": \"Aurora\",\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_30_8ab46617938c195cadf80bc11a96ce906a47c110.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -514,9 +520,9 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/user/sign_up",
+											"raw": "{{HEROKU_API}}/user/sign_up",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
@@ -527,13 +533,13 @@
 									"response": []
 								},
 								{
-									"name": "用戶登入",
+									"name": "用戶登入(主要)",
 									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"chloeWang@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+											"raw": "{\r\n    \"email\": \"apple@com.tw\",\r\n    \"password\": \"asdfasdf\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -541,9 +547,9 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/user/sign_in",
+											"raw": "{{HEROKU_API}}/user/sign_in",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
@@ -568,9 +574,9 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/user/sign_in",
+											"raw": "{{HEROKU_API}}/user/sign_in",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
@@ -595,9 +601,9 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/user/sign_in",
+											"raw": "{{HEROKU_API}}/user/sign_in",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
@@ -622,46 +628,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/user/sign_in",
+											"raw": "{{HEROKU_API}}/user/sign_in",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
 												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "更新用戶密碼(需登入)",
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTMzNCwiZXhwIjoxNjUzNjM0MTM0fQ.XB0jI8Ct3zqKwFuePZc60VhlQoWF1cb2j0gOhAij8Gk",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{API_URL}}/user/updatePassword",
-											"host": [
-												"{{API_URL}}"
-											],
-											"path": [
-												"user",
-												"updatePassword"
 											]
 										}
 									},
@@ -674,14 +647,14 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI5NDI5LCJleHAiOjE2NTM2MzQyMjl9.woCiwJ7LzH56bgvsuv3eQ_FQVtfPvstxYYnip3C3zYM",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"url": {
-											"raw": "{{API_URL}}/user/profile",
+											"raw": "{{HEROKU_API}}/user/profile",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
@@ -698,13 +671,13 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMDI5NDI5LCJleHAiOjE2NTM2MzQyMjl9.woCiwJ7LzH56bgvsuv3eQ_FQVtfPvstxYYnip3C3zYM",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"peter.chen\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/33.jpg\",\r\n    \"sex\": \"male\"\r\n}",
+											"raw": "{\r\n    \"name\": \"apple\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/women/31.jpg\",\r\n    \"sex\": \"female\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -712,13 +685,46 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/user/profile",
+											"raw": "{{HEROKU_API}}/user/profile",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"user",
 												"profile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "更新用戶密碼(需登入)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{API_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{HEROKU_API}}/user/updatePassword",
+											"host": [
+												"{{HEROKU_API}}"
+											],
+											"path": [
+												"user",
+												"updatePassword"
 											]
 										}
 									},
@@ -736,14 +742,14 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"url": {
-											"raw": "{{API_URL}}/posts",
+											"raw": "{{HEROKU_API}}/posts",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"posts"
@@ -767,24 +773,62 @@
 									"response": []
 								},
 								{
-									"name": "取得單筆貼文 by 貼文ID (需登入)",
+									"name": "取得單筆貼文 by 貼文ID(需登入)",
 									"request": {
 										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"url": {
-											"raw": "{{API_URL}}/post/6287335b0d6d45fae5736c66",
+											"raw": "{{HEROKU_API}}/post/628def6ff36dcfd3f0b1107e",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"post",
-												"6287335b0d6d45fae5736c66"
+												"628def6ff36dcfd3f0b1107e"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "取得個人貼文 by 用戶ID(需登入)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{API_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{HEROKU_API}}/posts/628c9fcef68f6760d0179b1a",
+											"host": [
+												"{{HEROKU_API}}"
+											],
+											"path": [
+												"posts",
+												"628c9fcef68f6760d0179b1a"
+											],
+											"query": [
+												{
+													"key": "timeSort",
+													"value": "asc",
+													"description": "貼文時間排序，asc舊到新；desc新到舊",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "吃",
+													"description": "貼文關鍵字搜尋",
+													"disabled": true
+												}
 											]
 										}
 									},
@@ -797,13 +841,13 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我想吃拉麵\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"raw": "{\r\n    \"content\": \"我想去浮潛\",\r\n    \"image\": \"https://images.unsplash.com/photo-1503177847378-d2048487fa46?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -811,9 +855,9 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/post",
+											"raw": "{{HEROKU_API}}/post",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"post"
@@ -823,20 +867,20 @@
 									"response": []
 								},
 								{
-									"name": "修改貼文by 貼文ID(需登入, 且為PO文者)",
+									"name": "修改貼文 by 貼文ID(需登入, 且為原本PO文者)",
 									"request": {
 										"method": "PATCH",
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODczOWFkNjVhMDUyMjk0NzllMTRiMCIsIm5hbWUiOiJDaGxvZSIsImlhdCI6MTY1MzAyOTUwMywiZXhwIjoxNjUzNjM0MzAzfQ.5jqv4rtyckGqxJe38l9TSaX7ssxwv6xC_fAhVdgITqU",
+												"value": "Bearer {{API_TOKEN}}",
 												"type": "text",
 												"description": "需登入，且為該筆貼文的PO文者"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我想吃拉麵3\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+											"raw": "{\r\n    \"content\": \"我想去浮潛2\",\r\n    \"image\": \"https://images.unsplash.com/photo-1504317083653-6843c8aa144f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -844,13 +888,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{API_URL}}/post/62873ae965a05229479e14da",
+											"raw": "{{HEROKU_API}}/post/628def6ff36dcfd3f0b1107e",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"post",
-												"62873ae965a05229479e14da"
+												"628def6ff36dcfd3f0b1107e"
 											]
 										}
 									},
@@ -872,9 +916,9 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{API_URL}}/admin/users",
+											"raw": "{{HEROKU_API}}/admin/users",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"admin",
@@ -890,9 +934,9 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{API_URL}}/admin/users",
+											"raw": "{{HEROKU_API}}/admin/users",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"admin",
@@ -908,14 +952,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{API_URL}}/admin/user/6287398f65a05229479e14ab",
+											"raw": "{{HEROKU_API}}/admin/user/628c6415e641c7ce84dcf45a",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"admin",
 												"user",
-												"6287398f65a05229479e14ab"
+												"628c6415e641c7ce84dcf45a"
 											]
 										}
 									},
@@ -932,9 +976,9 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{API_URL}}/admin/posts",
+											"raw": "{{HEROKU_API}}/admin/posts",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"admin",
@@ -950,14 +994,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{API_URL}}/admin/post/62867b2113fde1ed0324bbac",
+											"raw": "{{HEROKU_API}}/admin/post/628c5e21e641c7ce84dcf3e1",
 											"host": [
-												"{{API_URL}}"
+												"{{HEROKU_API}}"
 											],
 											"path": [
 												"admin",
 												"post",
-												"62867b2113fde1ed0324bbac"
+												"628c5e21e641c7ce84dcf3e1"
 											]
 										}
 									},
@@ -992,8 +1036,18 @@
 	],
 	"variable": [
 		{
-			"key": "API_URL",
+			"key": "HEROKU_API",
 			"value": "https://pacific-citadel-47505.herokuapp.com"
+		},
+		{
+			"key": "LOCAL_API",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "API_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMzY1OTMyLCJleHAiOjE2NTM5NzA3MzJ9.w-aIiJLShLmDQtOwHOPr4dCwl_UGEozDPAne2pWVlBw",
+			"type": "string"
 		}
 	]
 }
