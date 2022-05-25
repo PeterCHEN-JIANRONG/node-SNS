@@ -118,6 +118,10 @@ const controller = {
       return appError(next, "您無權限修改");
     }
 
+    if (!content) {
+      return appError(next, "貼文內容為必填");
+    }
+
     const editPost = await Post.findByIdAndUpdate(postId, data, options);
     successHandle(res, editPost);
   },

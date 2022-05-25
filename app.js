@@ -3,7 +3,6 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors"); // 跨網域設定 cors
-const axios = require("axios");
 const { errorHandle } = require("./services/httpHandle");
 const { resErrorDev, resErrorProd } = require("./services/resErrorHandle");
 
