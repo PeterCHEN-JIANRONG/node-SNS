@@ -1,4 +1,12 @@
-# node_week6
+# node_week7
+- 串接第三方圖床 [imgru](https://imgur.com/ "第三方圖床")，[教學文件](https://israynotarray.com/nodejs/20220517/432259079/)
+- 設計 /upload 路由，上傳圖片功能
+- 後端需驗證是否符合 2mb 限制、格式支援 jpg、png
+- 通過 isAuth 登入驗證 middleware，才可上傳圖片
+
+## node 先前的實作練習
+
+### node_week6
 - 實作 JWT驗證登入/註冊功能
 - 驗證身分 isAuth middleware
 - 增加身分驗證，實作：
@@ -8,8 +16,6 @@
   - 更新更人資料
   - 新增貼文
   - 查詢所有貼文
-
-## node 先前的實作練習
 
 ### week5
 - 請設計一個 middleware，讓 controller 程式碼裡面沒有 try catch

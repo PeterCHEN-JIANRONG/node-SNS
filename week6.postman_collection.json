@@ -1,1053 +1,874 @@
 {
-	"info": {
-		"_postman_id": "ba9b8d95-19d6-4875-88ea-6b14b3c02412",
-		"name": "week6",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "2759792"
-	},
-	"item": [
-		{
-			"name": "Local",
-			"item": [
-				{
-					"name": "前台",
-					"item": [
-						{
-							"name": "用戶相關",
-							"item": [
-								{
-									"name": "用戶註冊",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"Aurora\",\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_30_8ab46617938c195cadf80bc11a96ce906a47c110.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/user/sign_up",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"sign_up"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入1",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/user/sign_in",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入2",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"yy342@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/user/sign_in",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入3",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/user/sign_in",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "更新用戶密碼(需登入)",
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/user/updatePassword",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"updatePassword"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "取得用戶資料(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{LOCAL_API}}/user/profile",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"profile"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "更新用戶資料(需登入)",
-									"request": {
-										"method": "PATCH",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"peter.chen_update\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/35.jpg\",\r\n    \"gender\": \"man\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/user/profile",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"user",
-												"profile"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "貼文相關",
-							"item": [
-								{
-									"name": "取得所有貼文(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{LOCAL_API}}/posts",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"posts"
-											],
-											"query": [
-												{
-													"key": "timeSort",
-													"value": "asc",
-													"description": "貼文時間排序，asc舊到新；desc新到舊",
-													"disabled": true
-												},
-												{
-													"key": "q",
-													"value": "吃",
-													"description": "貼文關鍵字搜尋",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "取得個人貼文 by 用戶ID(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{LOCAL_API}}/posts/6286762f2d12214324889cb9",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"posts",
-												"6286762f2d12214324889cb9"
-											],
-											"query": [
-												{
-													"key": "timeSort",
-													"value": "asc",
-													"description": "貼文時間排序，asc舊到新；desc新到舊",
-													"disabled": true
-												},
-												{
-													"key": "q",
-													"value": "吃",
-													"description": "貼文關鍵字搜尋",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "取得單筆貼文 by 貼文ID(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{LOCAL_API}}/post/628c6315e641c7ce84dcf439",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"post",
-												"628c6315e641c7ce84dcf439"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "新增貼文(需登入)",
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"今天下大雨\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/post",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"post"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "修改貼文 by 貼文ID(需登入, 且為原本PO文者)",
-									"request": {
-										"method": "PATCH",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text",
-												"description": "需登入，且為該筆貼文的PO文者"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我被修改了4\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{LOCAL_API}}/post/628c6315e641c7ce84dcf439",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"post",
-												"628c6315e641c7ce84dcf439"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "後台工具",
-					"item": [
-						{
-							"name": "用戶相關",
-							"item": [
-								{
-									"name": "取得所有用戶",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{LOCAL_API}}/admin/users",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"admin",
-												"users"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "刪除所有用戶",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{LOCAL_API}}/admin/users",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"admin",
-												"users"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "刪除單筆用戶 by ID",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{LOCAL_API}}/admin/user/628c6415e641c7ce84dcf45a",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"admin",
-												"user",
-												"628c6415e641c7ce84dcf45a"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "貼文相關",
-							"item": [
-								{
-									"name": "刪除所有貼文",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{LOCAL_API}}/admin/posts",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"admin",
-												"posts"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "刪除單筆貼文 by 貼文ID",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{LOCAL_API}}/admin/post/628c5e21e641c7ce84dcf3e1",
-											"host": [
-												"{{LOCAL_API}}"
-											],
-											"path": [
-												"admin",
-												"post",
-												"628c5e21e641c7ce84dcf3e1"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Heroku",
-			"item": [
-				{
-					"name": "前台",
-					"item": [
-						{
-							"name": "用戶相關",
-							"item": [
-								{
-									"name": "用戶註冊",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"Aurora\",\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_30_8ab46617938c195cadf80bc11a96ce906a47c110.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/sign_up",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"sign_up"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入(主要)",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"apple@com.tw\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/sign_in",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入1",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/sign_in",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入2",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"yy342@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/sign_in",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "用戶登入3",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/sign_in",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"sign_in"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "取得用戶資料(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{HEROKU_API}}/user/profile",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"profile"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "更新用戶資料(需登入)",
-									"request": {
-										"method": "PATCH",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"apple\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/women/31.jpg\",\r\n    \"sex\": \"female\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/profile",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"profile"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "更新用戶密碼(需登入)",
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/user/updatePassword",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"user",
-												"updatePassword"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "貼文相關",
-							"item": [
-								{
-									"name": "取得所有貼文(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{HEROKU_API}}/posts",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"posts"
-											],
-											"query": [
-												{
-													"key": "timeSort",
-													"value": "asc",
-													"description": "貼文時間排序，asc舊到新；desc新到舊",
-													"disabled": true
-												},
-												{
-													"key": "q",
-													"value": "吃",
-													"description": "貼文關鍵字搜尋",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "取得單筆貼文 by 貼文ID(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{HEROKU_API}}/post/628def6ff36dcfd3f0b1107e",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"post",
-												"628def6ff36dcfd3f0b1107e"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "取得個人貼文 by 用戶ID(需登入)",
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{HEROKU_API}}/posts/628c9fcef68f6760d0179b1a",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"posts",
-												"628c9fcef68f6760d0179b1a"
-											],
-											"query": [
-												{
-													"key": "timeSort",
-													"value": "asc",
-													"description": "貼文時間排序，asc舊到新；desc新到舊",
-													"disabled": true
-												},
-												{
-													"key": "q",
-													"value": "吃",
-													"description": "貼文關鍵字搜尋",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "新增貼文(需登入)",
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我想去浮潛\",\r\n    \"image\": \"https://images.unsplash.com/photo-1503177847378-d2048487fa46?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/post",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"post"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "修改貼文 by 貼文ID(需登入, 且為原本PO文者)",
-									"request": {
-										"method": "PATCH",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{API_TOKEN}}",
-												"type": "text",
-												"description": "需登入，且為該筆貼文的PO文者"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"content\": \"我想去浮潛2\",\r\n    \"image\": \"https://images.unsplash.com/photo-1504317083653-6843c8aa144f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{HEROKU_API}}/post/628def6ff36dcfd3f0b1107e",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"post",
-												"628def6ff36dcfd3f0b1107e"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "後台工具",
-					"item": [
-						{
-							"name": "用戶相關",
-							"item": [
-								{
-									"name": "取得所有用戶",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{HEROKU_API}}/admin/users",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"admin",
-												"users"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "刪除所有用戶",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{HEROKU_API}}/admin/users",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"admin",
-												"users"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "刪除單筆用戶 by ID",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{HEROKU_API}}/admin/user/628c6415e641c7ce84dcf45a",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"admin",
-												"user",
-												"628c6415e641c7ce84dcf45a"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "貼文相關",
-							"item": [
-								{
-									"name": "刪除所有貼文",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{HEROKU_API}}/admin/posts",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"admin",
-												"posts"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "刪除單筆貼文 by 貼文ID",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{HEROKU_API}}/admin/post/628c5e21e641c7ce84dcf3e1",
-											"host": [
-												"{{HEROKU_API}}"
-											],
-											"path": [
-												"admin",
-												"post",
-												"628c5e21e641c7ce84dcf3e1"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				}
-			]
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "HEROKU_API",
-			"value": "https://pacific-citadel-47505.herokuapp.com"
-		},
-		{
-			"key": "LOCAL_API",
-			"value": "http://localhost:3000",
-			"type": "string"
-		},
-		{
-			"key": "API_TOKEN",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODY3NjJmMmQxMjIxNDMyNDg4OWNiOSIsIm5hbWUiOiJwZXRlci5jaGVuIiwiaWF0IjoxNjUzMzY1OTMyLCJleHAiOjE2NTM5NzA3MzJ9.w-aIiJLShLmDQtOwHOPr4dCwl_UGEozDPAne2pWVlBw",
-			"type": "string"
-		}
-	]
+  "info": {
+    "_postman_id": "ba9b8d95-19d6-4875-88ea-6b14b3c02412",
+    "name": "week6",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "2759792"
+  },
+  "item": [
+    {
+      "name": "Local",
+      "item": [
+        {
+          "name": "前台",
+          "item": [
+            {
+              "name": "用戶相關",
+              "item": [
+                {
+                  "name": "用戶註冊",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Aurora\",\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_30_8ab46617938c195cadf80bc11a96ce906a47c110.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/sign_up",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "sign_up"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入1",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/sign_in",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入2",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"yy342@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/sign_in",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入3",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/sign_in",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "更新用戶密碼(需登入)",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/updatePassword",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "updatePassword"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "取得用戶資料(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/profile",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "profile"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "更新用戶資料(需登入)",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"peter.chen_update\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/men/35.jpg\",\r\n    \"gender\": \"man\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/user/profile",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["user", "profile"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "貼文相關",
+              "item": [
+                {
+                  "name": "取得所有貼文(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/posts",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["posts"],
+                      "query": [
+                        {
+                          "key": "timeSort",
+                          "value": "asc",
+                          "description": "貼文時間排序，asc舊到新；desc新到舊",
+                          "disabled": true
+                        },
+                        {
+                          "key": "q",
+                          "value": "吃",
+                          "description": "貼文關鍵字搜尋",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "取得個人貼文 by 用戶ID(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/posts/6286762f2d12214324889cb9",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["posts", "6286762f2d12214324889cb9"],
+                      "query": [
+                        {
+                          "key": "timeSort",
+                          "value": "asc",
+                          "description": "貼文時間排序，asc舊到新；desc新到舊",
+                          "disabled": true
+                        },
+                        {
+                          "key": "q",
+                          "value": "吃",
+                          "description": "貼文關鍵字搜尋",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "取得單筆貼文 by 貼文ID(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/post/628c6315e641c7ce84dcf439",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["post", "628c6315e641c7ce84dcf439"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "新增貼文(需登入)",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"content\": \"今天下大雨\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/post",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["post"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "修改貼文 by 貼文ID(需登入, 且為原本PO文者)",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text",
+                        "description": "需登入，且為該筆貼文的PO文者"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"content\": \"我被修改了4\",\r\n    \"image\": \"https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{LOCAL_API}}/post/628c6315e641c7ce84dcf439",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["post", "628c6315e641c7ce84dcf439"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "後台工具",
+          "item": [
+            {
+              "name": "用戶相關",
+              "item": [
+                {
+                  "name": "取得所有用戶",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/admin/users",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["admin", "users"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "刪除所有用戶",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/admin/users",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["admin", "users"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "刪除單筆用戶 by ID",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/admin/user/628c6415e641c7ce84dcf45a",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["admin", "user", "628c6415e641c7ce84dcf45a"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "貼文相關",
+              "item": [
+                {
+                  "name": "刪除所有貼文",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/admin/posts",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["admin", "posts"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "刪除單筆貼文 by 貼文ID",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{LOCAL_API}}/admin/post/628c5e21e641c7ce84dcf3e1",
+                      "host": ["{{LOCAL_API}}"],
+                      "path": ["admin", "post", "628c5e21e641c7ce84dcf3e1"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heroku",
+      "item": [
+        {
+          "name": "前台",
+          "item": [
+            {
+              "name": "用戶相關",
+              "item": [
+                {
+                  "name": "用戶註冊",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Aurora\",\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"photo\": \"https://thumb.fakeface.rest/thumb_female_30_8ab46617938c195cadf80bc11a96ce906a47c110.jpg\",\r\n    \"sex\": \"female\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/sign_up",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "sign_up"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入(主要)",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"apple@com.tw\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/sign_in",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入1",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"peter.chen@yahoo.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/sign_in",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入2",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"yy342@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/sign_in",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "用戶登入3",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"email\": \"aurora0512@gmail.com\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/sign_in",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "sign_in"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "取得用戶資料(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/profile",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "profile"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "更新用戶資料(需登入)",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"apple\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/women/31.jpg\",\r\n    \"sex\": \"female\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/profile",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "profile"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "更新用戶密碼(需登入)",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/user/updatePassword",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["user", "updatePassword"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "貼文相關",
+              "item": [
+                {
+                  "name": "取得所有貼文(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/posts",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["posts"],
+                      "query": [
+                        {
+                          "key": "timeSort",
+                          "value": "asc",
+                          "description": "貼文時間排序，asc舊到新；desc新到舊",
+                          "disabled": true
+                        },
+                        {
+                          "key": "q",
+                          "value": "吃",
+                          "description": "貼文關鍵字搜尋",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "取得單筆貼文 by 貼文ID(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/post/628def6ff36dcfd3f0b1107e",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["post", "628def6ff36dcfd3f0b1107e"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "取得個人貼文 by 用戶ID(需登入)",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/posts/628c9fcef68f6760d0179b1a",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["posts", "628c9fcef68f6760d0179b1a"],
+                      "query": [
+                        {
+                          "key": "timeSort",
+                          "value": "asc",
+                          "description": "貼文時間排序，asc舊到新；desc新到舊",
+                          "disabled": true
+                        },
+                        {
+                          "key": "q",
+                          "value": "吃",
+                          "description": "貼文關鍵字搜尋",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "新增貼文(需登入)",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"content\": \"我想去浮潛\",\r\n    \"image\": \"https://images.unsplash.com/photo-1503177847378-d2048487fa46?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/post",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["post"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "修改貼文 by 貼文ID(需登入, 且為原本PO文者)",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{API_TOKEN}}",
+                        "type": "text",
+                        "description": "需登入，且為該筆貼文的PO文者"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"content\": \"我想去浮潛2\",\r\n    \"image\": \"https://images.unsplash.com/photo-1504317083653-6843c8aa144f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632\",\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\",\r\n    \"likes\": 2000,\r\n    \"comments\": 1000\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{HEROKU_API}}/post/628def6ff36dcfd3f0b1107e",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["post", "628def6ff36dcfd3f0b1107e"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "後台工具",
+          "item": [
+            {
+              "name": "用戶相關",
+              "item": [
+                {
+                  "name": "取得所有用戶",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/admin/users",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["admin", "users"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "刪除所有用戶",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/admin/users",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["admin", "users"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "刪除單筆用戶 by ID",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/admin/user/628c6415e641c7ce84dcf45a",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["admin", "user", "628c6415e641c7ce84dcf45a"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "貼文相關",
+              "item": [
+                {
+                  "name": "刪除所有貼文",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/admin/posts",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["admin", "posts"]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "刪除單筆貼文 by 貼文ID",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{HEROKU_API}}/admin/post/628c5e21e641c7ce84dcf3e1",
+                      "host": ["{{HEROKU_API}}"],
+                      "path": ["admin", "post", "628c5e21e641c7ce84dcf3e1"]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "HEROKU_API",
+      "value": "https://pacific-citadel-47505.herokuapp.com"
+    },
+    {
+      "key": "LOCAL_API",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "API_TOKEN",
+      "value": "",
+      "type": "string"
+    }
+  ]
 }

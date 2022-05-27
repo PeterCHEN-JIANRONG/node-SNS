@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const handleErrorAsync = require("../services/handleErrorAsync");
-const appError = require("../services/appError");
+const handleErrorAsync = require("./handleErrorAsync");
+const appError = require("./appError");
 const User = require("../models/userModel");
 
 // 產生 JWT token 憑證
