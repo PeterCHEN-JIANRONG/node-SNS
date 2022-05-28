@@ -54,7 +54,7 @@ const controller = {
     successHandle(res, allPosts);
   },
   async createOne(req, res, next) {
-    const { content, image, tags, type, likes, comments } = req.body;
+    const { content, image, tags, type } = req.body;
 
     // 欄位格式不正確
     if (!content) {
@@ -71,9 +71,7 @@ const controller = {
         content,
         image,
         tags,
-        type,
-        likes,
-        comments,
+        type
       };
 
       // 經過 isAuth, 用戶id一定存在, 不用再驗證用戶是否存在, 可直接新增貼文

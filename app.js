@@ -10,6 +10,7 @@ const { resErrorDev, resErrorProd } = require("./services/resErrorHandle");
 const indexRouter = require("./routes/index");
 const postRouter = require("./routes/post");
 const userRouter = require("./routes/user");
+const uploadRouter = require("./routes/upload");
 
 // 程式出現重大錯誤時
 process.on("uncaughtException", (err) => {
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/", postRouter); // post
 app.use("/", userRouter); // user
+app.use("/upload", uploadRouter); // upload
 
 // 404 not found 錯誤
 app.use((req, res, next) => {
@@ -80,6 +82,11 @@ app.use((err, req, res, next) => {
   } else if (err.name === "CastError" && err.kind === "ObjectId") {
     // ObjectId 格式錯誤
     err.message = "ID格式錯誤，請重新輸入！";
+    err.statusCode = 400;
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  } else if(err.name === "MulterError" && err.message === "File too large"){
+    err.message = "圖片大小超過 2 MB，請重新上傳！";
     err.statusCode = 400;
     err.isOperational = true;
     return resErrorProd(err, res);
