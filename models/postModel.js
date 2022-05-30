@@ -14,8 +14,8 @@ const postSchema = new Schema(
       required: [true, "內容未填寫"],
     },
     image: {
-      type: String,
-      default: "",
+      type: Array,
+      default: [],
     },
     tags: [
       {
