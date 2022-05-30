@@ -36,13 +36,13 @@ const controller = {
   async getPostsByUserId(req, res, next) {
     // 時間排序
     const timeSort = req.query.timeSort == "asc" ? "createdAt" : "-createdAt";
-    
+
     const { id } = req.params; // user ID
-    const filter = {user:id};
+    const filter = { user: id };
 
     // 搜尋貼文內容關鍵字
-    if(req.query.q !== undefined){
-      filter.content = new RegExp(req.query.q)
+    if (req.query.q !== undefined) {
+      filter.content = new RegExp(req.query.q);
     }
 
     const allPosts = await Post.find(filter)
@@ -71,7 +71,7 @@ const controller = {
         content,
         image,
         tags,
-        type
+        type,
       };
 
       // 經過 isAuth, 用戶id一定存在, 不用再驗證用戶是否存在, 可直接新增貼文
@@ -122,6 +122,24 @@ const controller = {
 
     const editPost = await Post.findByIdAndUpdate(postId, data, options);
     successHandle(res, editPost);
+  },
+  async likePostById(req, res, next) {
+    const userId = req.user.id; // 用戶ID
+    const postId = req.params.id; // 貼文ID
+    await Post.findOneAndUpdate(
+      { _id: postId },
+      { $addToSet: { likes: userId } } // 不重複新增
+    );
+    successHandle(res, { userId, postId });
+  },
+  async deleteLikePostById(req, res, next) {
+    const userId = req.user.id; // 用戶ID
+    const postId = req.params.id; // 貼文ID
+    await Post.findOneAndUpdate(
+      { _id: postId },
+      { $pull: { likes: userId } } // 移除所有 userId 相同的
+    );
+    successHandle(res, { userId, postId });
   },
 };
 

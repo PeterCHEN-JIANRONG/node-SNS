@@ -11,7 +11,11 @@ router.get("/post/:id", isAuth, handleErrorAsync(PostController.getOneById));
 router.get("/posts/", isAuth, handleErrorAsync(PostController.getAll));
 
 // 取得個人貼文 by userId
-router.get("/posts/:id", isAuth, handleErrorAsync(PostController.getPostsByUserId));
+router.get(
+  "/posts/:id",
+  isAuth,
+  handleErrorAsync(PostController.getPostsByUserId)
+);
 
 // 新增貼文
 router.post("/post/", isAuth, handleErrorAsync(PostController.createOne));
@@ -21,6 +25,19 @@ router.patch(
   "/post/:id",
   isAuth,
   handleErrorAsync(PostController.updateOneById)
+);
+
+// 按讚貼文
+router.post(
+  "/post/:id/likes",
+  isAuth,
+  handleErrorAsync(PostController.likePostById)
+);
+// 取消按讚
+router.delete(
+  "/post/:id/likes",
+  isAuth,
+  handleErrorAsync(PostController.deleteLikePostById)
 );
 
 // --- 以下為後台工具 ---

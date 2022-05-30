@@ -28,10 +28,12 @@ const postSchema = new Schema(
       enum: ["person", "group"],
       required: [true, "貼文類型未填寫"],
     },
-    likes: {
-      type: Number,
-      default: 0,
-    },
+    likes: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+      },
+    ],
     comments: {
       type: Number,
       default: 0,
