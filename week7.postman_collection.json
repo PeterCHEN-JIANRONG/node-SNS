@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "e68d8d58-8495-460b-9303-501c9b98ce63",
+		"name": "week7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2759792"
+	},
+	"item": [
+		{
+			"name": "前台",
+			"item": [
+				{
+					"name": "用戶相關",
+					"item": [
+						{
+							"name": "用戶註冊",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"apple\",\r\n    \"email\": \"apple@com.tw\",\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/user/sign_up",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user",
+										"sign_up"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用戶登入",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"apple@com.tw\",\r\n    \"password\": \"asdfasdf\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/user/sign_in",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user",
+										"sign_in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取得用戶資料",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/user/profile",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更新用戶密碼",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"asdfasdf\",\r\n    \"confirmPassword\": \"asdfasdf\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/user/updatePassword",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user",
+										"updatePassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更新用戶資料",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"apple\",\r\n    \"photo\": \"https://randomuser.me/api/portraits/women/31.jpg\",\r\n    \"sex\": \"female\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/user/profile",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "貼文相關",
+					"item": [
+						{
+							"name": "新增貼文",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"我想去海邊530-3\",\r\n    \"image\":[\r\n        \"https://i.imgur.com/qx1SIjf.jpg\",\r\n        \"https://i.imgur.com/rVbS3yR.jpg\"\r\n    ],\r\n    \"tags\": [\r\n        \"海鮮大餐\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"group\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/post",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取得所有貼文",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/posts",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"posts"
+									],
+									"query": [
+										{
+											"key": "timeSort",
+											"value": "asc",
+											"description": "貼文時間排序，asc舊到新；desc新到舊",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "吃",
+											"description": "貼文關鍵字搜尋",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取得個人貼文",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/posts/user/{{user_id}}",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"posts",
+										"user",
+										"{{user_id}}"
+									],
+									"query": [
+										{
+											"key": "timeSort",
+											"value": "asc",
+											"description": "貼文時間排序，asc舊到新；desc新到舊",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "吃",
+											"description": "貼文關鍵字搜尋",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取得單筆貼文",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/post/{{post_id}}",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"post",
+										"{{post_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改貼文(非原PO不可修改)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text",
+										"description": "需登入，且為該筆貼文的PO文者"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"我好想出國530\",\r\n    \"image\": [\r\n        \"https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1192&q=80\"\r\n    ],\r\n    \"tags\": [\r\n        \"好想出國\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"person\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/post/{{post_id}}",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"post",
+										"{{post_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "圖片上傳",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"description": "上限 8 張, 單檔上限 2 MB, 僅接受 jpg, jpeg, png 格式",
+											"type": "file",
+											"src": [
+												"/C:/Users/peter.chen/Pictures/node小組/1.jpg",
+												"/C:/Users/peter.chen/Pictures/node小組/2.jpg"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/upload",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "按讚貼文",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/post/{{post_id}}/likes",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"post",
+										"{{post_id}}",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取消按讚",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/post/{{post_id}}/likes",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"post",
+										"{{post_id}}",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取得按讚列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/user/getLikeList",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user",
+										"getLikeList"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "後台工具(測試用)",
+			"item": [
+				{
+					"name": "用戶相關",
+					"item": [
+						{
+							"name": "取得所有用戶",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/admin/users",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刪除所有用戶",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_API}}/admin/users",
+									"host": [
+										"{{LOCAL_API}}"
+									],
+									"path": [
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刪除單筆用戶 by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_API}}/admin/user/628c6415e641c7ce84dcf45a",
+									"host": [
+										"{{LOCAL_API}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"628c6415e641c7ce84dcf45a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "貼文相關",
+					"item": [
+						{
+							"name": "刪除所有貼文",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/admin/posts",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"admin",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刪除單筆貼文 by 貼文ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/admin/post/{{post_id}}",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"admin",
+										"post",
+										"{{post_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "heroku",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
