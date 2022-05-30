@@ -12,7 +12,7 @@ router.get("/posts/", isAuth, handleErrorAsync(PostController.getAll));
 
 // 取得個人貼文 by userId
 router.get(
-  "/posts/:id",
+  "/posts/user/:id",
   isAuth,
   handleErrorAsync(PostController.getPostsByUserId)
 );

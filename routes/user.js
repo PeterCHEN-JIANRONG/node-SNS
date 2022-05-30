@@ -31,6 +31,13 @@ router.post(
   handleErrorAsync(UserController.updatePassword)
 );
 
+// 取得按讚列表
+router.get(
+  "/user/getLikeList",
+  isAuth,
+  handleErrorAsync(UserController.getLikeList)
+);
+
 // --- 以下為後台工具 ---
 // 刪除單筆用戶 by Id
 router.delete(

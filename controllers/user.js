@@ -1,9 +1,10 @@
 const { successHandle } = require("../services/httpHandle");
-const User = require("../models/userModel");
 const appError = require("../services/appError");
 const bcrypt = require("bcryptjs");
 const validator = require("validator");
 const { generateSendJWT } = require("../services/auth");
+const User = require("../models/userModel");
+const Post = require("../models/postModel");
 
 // User controller
 const controller = {
@@ -190,6 +191,16 @@ const controller = {
     });
 
     generateSendJWT(user, 200, res);
+  },
+  async getLikeList(req, res, next) {
+    const userId = req.user.id;
+    const likeList = await Post.find({
+      likes: { $in: [userId] },
+    }).populate({
+      path: "user",
+      select: "name _id photo",
+    });
+    successHandle(res, likeList);
   },
 };
 
