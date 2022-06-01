@@ -12,7 +12,7 @@ const errorHandle = (res, err, httpCode = 400) => {
   res.status(httpCode).json(obj);
 };
 
-const successHandle = (res, data, message = "") => {
+const successHandle = (res, data, message = "", status = 200) => {
   const obj = {
     status: "success",
     data,
@@ -22,7 +22,7 @@ const successHandle = (res, data, message = "") => {
     obj.message = message;
   }
   // res.json(obj); // .json() -> Content-Type:application:json
-  res.send(obj); // .send() 自動判斷回傳 Content-Type, String -> text/html；Array、Object -> application:json
+  res.status(status).send(obj); // .send() 自動判斷回傳 Content-Type, String -> text/html；Array、Object -> application:json
 };
 
 module.exports = {

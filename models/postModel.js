@@ -34,10 +34,6 @@ const postSchema = new Schema(
         ref: "User",
       },
     ],
-    comments: {
-      type: Number,
-      default: 0,
-    },
     createdAt: {
       type: Date,
       default: Date.now,
@@ -46,8 +42,18 @@ const postSchema = new Schema(
   },
   {
     versionKey: false,
+    toJSON: { virtuals: true }, // 虛擬欄位設定
+    toObject: { virtuals: true }, // 虛擬欄位設定
   }
 );
+
+// 引用虛擬欄位 (相似：關聯資料庫的 join 關聯)
+// 需透過 populate 啟用
+postSchema.virtual("comments", {
+  ref: "Comment", // 引用 model 名稱
+  foreignField: "post", // 引用欄位名稱 commentModel.post
+  localField: "_id", // postsModel._id
+});
 
 // model
 const Post = new model("Post", postSchema);

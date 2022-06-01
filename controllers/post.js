@@ -1,17 +1,22 @@
 const { successHandle } = require("../services/httpHandle");
 const Post = require("../models/postModel");
 const User = require("../models/userModel");
+const Comment = require("../models/commentModel");
 const appError = require("../services/appError");
 
 // Post controller
 const controller = {
   async getOneById(req, res, next) {
     const { id } = req.params;
-    const item = await Post.findById(id).populate({
-      path: "user", // 對應 Post model 的 user field
-      select: "name photo", // 關聯後，要撈的欄位資料
-    });
-
+    const item = await Post.findById(id)
+      .populate({
+        path: "user", // 對應 Post model 的 user field
+        select: "name photo", // 關聯後，要撈的欄位資料
+      })
+      .populate({
+        path: "comments", // 引用虛擬欄位 comments
+        select: "comment user createdAt -post",
+      });
     if (item !== null) {
       successHandle(res, item);
     } else {
@@ -29,6 +34,10 @@ const controller = {
       .populate({
         path: "user", // 對應 Post model 的 user field
         select: "name photo", // 關聯後，要撈的欄位資料
+      })
+      .populate({
+        path: "comments", // 引用虛擬欄位 comments
+        select: "comment user createdAt -post",
       })
       .sort(timeSort);
     successHandle(res, allPosts);
@@ -49,6 +58,10 @@ const controller = {
       .populate({
         path: "user", // 對應 Post model 的 user field
         select: "name photo", // 關聯後，要撈的欄位資料
+      })
+      .populate({
+        path: "comments", // 引用虛擬欄位 comments
+        select: "comment user createdAt -post",
       })
       .sort(timeSort);
     successHandle(res, allPosts);
@@ -76,7 +89,7 @@ const controller = {
 
       // 經過 isAuth, 用戶id一定存在, 不用再驗證用戶是否存在, 可直接新增貼文
       const newPost = await Post.create(postData);
-      successHandle(res, newPost);
+      successHandle(res, newPost, "", 201);
     }
   },
   async deleteAll(req, res, next) {
@@ -130,7 +143,7 @@ const controller = {
       { _id: postId },
       { $addToSet: { likes: userId } } // 不重複新增
     );
-    successHandle(res, { userId, postId });
+    successHandle(res, { userId, postId }, "按讚成功", 201);
   },
   async deleteLikePostById(req, res, next) {
     const userId = req.user.id; // 用戶ID
@@ -139,7 +152,24 @@ const controller = {
       { _id: postId },
       { $pull: { likes: userId } } // 移除所有 userId 相同的
     );
-    successHandle(res, { userId, postId });
+    successHandle(res, { userId, postId }, "取消按讚成功");
+  },
+  async commentPostById(req, res, next) {
+    const userId = req.user.id; // 用戶ID
+    const postId = req.params.id; // 貼文ID
+    const { comment } = req.body;
+
+    if (!comment) {
+      return appError(next, "留言未填寫");
+    }
+
+    const newComment = await Comment.create({
+      user: userId,
+      post: postId,
+      comment,
+    });
+
+    successHandle(res, newComment, "", 201);
   },
 };
 

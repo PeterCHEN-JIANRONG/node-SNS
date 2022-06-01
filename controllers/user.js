@@ -47,7 +47,7 @@ const controller = {
         password,
       };
       const newItem = await User.create(data);
-      successHandle(res, newItem);
+      successHandle(res, newItem, "", 201);
     }
   },
   async deleteAll(req, res, next) {
@@ -198,7 +198,7 @@ const controller = {
       likes: { $in: [userId] },
     }).populate({
       path: "user",
-      select: "name _id photo",
+      select: "name photo",
     });
     successHandle(res, likeList);
   },

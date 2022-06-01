@@ -40,6 +40,13 @@ router.delete(
   handleErrorAsync(PostController.deleteLikePostById)
 );
 
+// 留言貼文
+router.post(
+  "/post/:id/comment",
+  isAuth,
+  handleErrorAsync(PostController.commentPostById)
+);
+
 // --- 以下為後台工具 ---
 // 刪除單筆貼文 by Id
 router.delete(
