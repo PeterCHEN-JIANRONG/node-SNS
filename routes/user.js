@@ -38,6 +38,20 @@ router.get(
   handleErrorAsync(UserController.getLikeList)
 );
 
+// 追蹤用戶
+router.post(
+  "/user/:id/follow",
+  isAuth,
+  handleErrorAsync(UserController.followUserById)
+);
+
+// 取消追蹤用戶
+router.delete(
+  "/user/:id/follow",
+  isAuth,
+  handleErrorAsync(UserController.unFollowUserById)
+);
+
 // --- 以下為後台工具 ---
 // 刪除單筆用戶 by Id
 router.delete(

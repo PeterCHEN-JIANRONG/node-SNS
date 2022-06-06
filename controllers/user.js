@@ -202,6 +202,84 @@ const controller = {
     });
     successHandle(res, likeList);
   },
+  async followUserById(req, res, next) {
+    const { id: userId } = req.user; // 自己 ID
+    const { id: followUserId } = req.params; // 被追蹤人 ID
+
+    if (userId === followUserId) {
+      return appError(next, "無法追蹤自己", 401);
+    }
+
+    // 新增 自己的追蹤列表
+    const user = await User.updateOne(
+      {
+        _id: userId,
+        "following.user": { $ne: followUserId }, // following.user 內沒有被追蹤人 ID
+      },
+      {
+        $addToSet: { following: { user: followUserId } }, // 新增, $addToSet => 陣列的push
+      }
+    );
+
+    // 新增 被追蹤人的被追蹤列表
+    await User.updateOne(
+      {
+        _id: followUserId,
+        "followers.user": { $ne: userId }, // follows.user 內沒有追蹤的人 ID
+      },
+      {
+        $addToSet: { followers: { user: userId } }, // 新增, $addToSet => 陣列的push
+      }
+    );
+
+    let message = "追蹤用戶成功";
+    if (user.modifiedCount === 0) {
+      message = "您已追蹤過此用戶";
+    }
+
+    res.status(200).json({
+      status: "success",
+      message,
+    });
+  },
+  async unFollowUserById(req, res, next) {
+    const { id: userId } = req.user; // 自己 ID
+    const { id: followUserId } = req.params; // 被追蹤人 ID
+
+    if (userId === followUserId) {
+      return appError(next, "無法取消追蹤自己", 401);
+    }
+
+    // 從 自己的追蹤列表 內 移除
+    const user = await User.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        $pull: { following: { user: followUserId } }, // 移除
+      }
+    );
+
+    // 從 被追蹤人的被追蹤列表 內 移除
+    await User.updateOne(
+      {
+        _id: followUserId,
+      },
+      {
+        $pull: { followers: { user: userId } }, // 移除
+      }
+    );
+
+    let message = "取消追蹤成功";
+    if (user.modifiedCount === 0) {
+      message = "您尚無追蹤此用戶";
+    }
+
+    res.status(200).json({
+      status: "success",
+      message,
+    });
+  },
 };
 
 module.exports = controller;

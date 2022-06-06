@@ -36,6 +36,36 @@ const userSchema = new Schema(
       default: Date.now,
       select: false,
     },
+    followers: [
+      // 我被誰追蹤
+      {
+        _id: false,
+        user: {
+          type: Schema.ObjectId,
+          ref: "User",
+          required: [true, "追蹤者 ID 未填寫"],
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+    following: [
+      // 我追蹤的人
+      {
+        _id: false,
+        user: {
+          type: Schema.ObjectId,
+          ref: "User",
+          required: [true, "被追蹤者 ID 未填寫"],
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   {
     timestamps: false,
