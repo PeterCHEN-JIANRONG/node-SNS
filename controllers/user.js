@@ -164,7 +164,9 @@ const controller = {
       new: true, // 回傳更新"後"的資料, default: false 回傳更新"前"的資料
       runValidators: true, // 驗證修改資料
     };
-    const user = await User.findByIdAndUpdate(id, data, options);
+    const user = await User.findByIdAndUpdate(id, data, options).select(
+      "-followers -following"
+    );
     res.send({
       status: "success",
       user,

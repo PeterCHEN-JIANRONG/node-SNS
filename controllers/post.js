@@ -126,7 +126,7 @@ const controller = {
     const post = await Post.findById(postId);
     if (userId !== post.user.toString()) {
       // 若貼文的user 與 登入者Id 不同，則不可修改
-      return appError(next, "您無權限修改");
+      return appError(next, "不可修改他人貼文");
     }
 
     if (!content) {
