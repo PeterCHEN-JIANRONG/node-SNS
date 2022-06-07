@@ -147,6 +147,11 @@ const controller = {
       user,
     });
   },
+  async getProfileById(req, res, next) {
+    const { id: userId } = req.params;
+    const user = await User.findById(userId).select("-following");
+    successHandle(res, user);
+  },
   async updateProfile(req, res, next) {
     const { id } = req.user; // 經 isAuth 驗證後夾帶的 user
     const { name, photo, sex } = req.body;

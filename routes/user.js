@@ -17,6 +17,13 @@ router.get(
   handleErrorAsync(UserController.getProfile)
 );
 
+// 取得指定用戶資料
+router.get(
+  "/user/:id/profile",
+  isAuth,
+  handleErrorAsync(UserController.getProfileById)
+);
+
 // 更新用戶資料
 router.patch(
   "/user/profile",
