@@ -280,6 +280,16 @@ const controller = {
       message,
     });
   },
+  async getFollowingList(req, res, next) {
+    const { id: userId } = req.user;
+
+    const user = await User.findById(userId).populate({
+      path: "following.user",
+      select: "name photo sex",
+    });
+    const followingList = user.following;
+    successHandle(res, followingList);
+  },
 };
 
 module.exports = controller;

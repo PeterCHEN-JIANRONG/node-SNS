@@ -25,7 +25,7 @@ router.patch(
 );
 
 // 用戶更新密碼
-router.post(
+router.patch(
   "/user/updatePassword",
   isAuth,
   handleErrorAsync(UserController.updatePassword)
@@ -50,6 +50,13 @@ router.delete(
   "/user/:id/follow",
   isAuth,
   handleErrorAsync(UserController.unFollowUserById)
+);
+
+// 取得個人追蹤名單
+router.get(
+  "/user/following",
+  isAuth,
+  handleErrorAsync(UserController.getFollowingList)
 );
 
 // --- 以下為後台工具 ---
