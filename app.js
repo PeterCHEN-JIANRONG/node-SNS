@@ -90,6 +90,16 @@ app.use((err, req, res, next) => {
     err.statusCode = 400;
     err.isOperational = true;
     return resErrorProd(err, res);
+  } else if(err.name === "MulterError" && err.code === "LIMIT_UNEXPECTED_FILE" && err.field === "photos"){
+    err.message = "上傳圖片超過 8 張";
+    err.statusCode = 400;
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  } else if(err.name === "MulterError" && err.code === "LIMIT_UNEXPECTED_FILE" && err.field === "avatar"){
+    err.message = "上傳圖片超過 1 張";
+    err.statusCode = 400;
+    err.isOperational = true;
+    return resErrorProd(err, res);
   }
   // 非預期的 NPM 錯誤
   resErrorProd(err, res);

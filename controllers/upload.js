@@ -5,14 +5,14 @@ const { ImgurClient } = require('imgur');
 
 const controller = {
   async uploadImages(req,res,next){
-    
+
     if(!req.files.length){
       return appError(next,"尚未上傳檔案")
     }
 
-    if(req.files.length > 8){
-      return appError(next,"上傳圖片超過 8 張")
-    }
+    // if(req.files.length > 8){
+    //   return appError(next,"上傳圖片超過 8 張")
+    // }
 
     // 限制圖片比例
     // const dimensions = sizeOf(req.files[0].buffer);
@@ -30,7 +30,7 @@ const controller = {
     for(let i in req.files){
       // 單張圖片上傳
       const imgurRes = await client.upload({
-        image: req.files[i].buffer.toString('base64'),
+        image: req.files[i].buffer.toString('base64'), // 圖片轉 base64 格式
         type: 'base64',
         album: process.env.IMGUR_ALBUM_ID
       });
