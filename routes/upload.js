@@ -6,6 +6,9 @@ const { isAuth } = require("../services/auth");
 const  uploadImage  = require("../middleware/image");
 
 // 多圖上傳
-router.post('/',isAuth,uploadImage,handleErrorAsync(uploadController.uploadImages));
+router.post('/photos',isAuth,uploadImage.array('photos', 8),handleErrorAsync(uploadController.uploadImages));
+
+// 單圖上傳 / 大頭照
+router.post('/avatar',isAuth,uploadImage.single('avatar'),handleErrorAsync(uploadController.uploadAvatar));
 
 module.exports = router;

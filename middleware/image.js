@@ -15,9 +15,8 @@ const upload = multer({
     }
     cb(null, true); // true: 可以進到下個 middleware
   },
-}).fields([{ name: 'avatar', maxCount: 1 }, { name: 'photos', maxCount: 8 }])
-// }).single('avatar') // 單圖
-// }).array('photos', 8) // 多圖
+})
 // }).any() // 不限制
+// }).fields([{ name: 'avatar', maxCount: 1 }, { name: 'photos', maxCount: 8 }])
 
 module.exports = upload
