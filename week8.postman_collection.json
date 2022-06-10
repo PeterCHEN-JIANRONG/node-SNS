@@ -599,7 +599,7 @@
 					"name": "其他",
 					"item": [
 						{
-							"name": "圖片上傳",
+							"name": "多圖上傳",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -613,25 +613,62 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "",
+											"key": "photos",
 											"description": "上限 8 張, 單檔上限 2 MB, 僅接受 jpg, jpeg, png 格式",
 											"type": "file",
 											"src": [
-												"/C:/Users/peter.chen/Pictures/node小組/food/1.jpg",
-												"/C:/Users/peter.chen/Pictures/node小組/food/2.jpg",
-												"/C:/Users/peter.chen/Pictures/node小組/food/3.jpg",
-												"/C:/Users/peter.chen/Pictures/node小組/food/4.jpg"
+												"/C:/Users/peter.chen/Pictures/node小組/1.jpg",
+												"/C:/Users/peter.chen/Pictures/node小組/2.jpg"
 											]
 										}
 									]
 								},
 								"url": {
-									"raw": "{{API_URL}}/upload",
+									"raw": "{{API_URL}}/upload/photos",
 									"host": [
 										"{{API_URL}}"
 									],
 									"path": [
-										"upload"
+										"upload",
+										"photos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "單圖上傳/大頭照",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"description": "上限 1 張, 單檔上限 2 MB, 僅接受 jpg, jpeg, png 格式",
+											"type": "file",
+											"src": [
+												"/C:/Users/peter.chen/Pictures/node小組/1.jpg",
+												"/C:/Users/peter.chen/Pictures/node小組/2.jpg"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/upload/avatar",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"upload",
+										"avatar"
 									]
 								}
 							},
@@ -666,14 +703,14 @@
 							"response": []
 						},
 						{
-							"name": "刪除所有用戶",
+							"name": "刪除所有用戶(非必要請勿使用)",
 							"request": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{API_URL}}/admin/users",
+									"raw": "{{LOCAL_API}}/admin/users",
 									"host": [
-										"{{API_URL}}"
+										"{{LOCAL_API}}"
 									],
 									"path": [
 										"admin",
@@ -684,7 +721,7 @@
 							"response": []
 						},
 						{
-							"name": "刪除單筆用戶 by ID",
+							"name": "刪除單筆用戶 by ID(非必要請勿使用)",
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -708,14 +745,14 @@
 					"name": "貼文相關",
 					"item": [
 						{
-							"name": "刪除所有貼文",
+							"name": "刪除所有貼文(非必要請勿使用)",
 							"request": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{API_URL}}/admin/posts",
+									"raw": "{{LOCAL_API}}/admin/posts",
 									"host": [
-										"{{API_URL}}"
+										"{{LOCAL_API}}"
 									],
 									"path": [
 										"admin",
@@ -731,14 +768,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{API_URL}}/admin/post/{{post_id}}",
+									"raw": "{{API_URL}}/admin/post/629f06003e1388aa2d705e0c",
 									"host": [
 										"{{API_URL}}"
 									],
 									"path": [
 										"admin",
 										"post",
-										"{{post_id}}"
+										"629f06003e1388aa2d705e0c"
 									]
 								}
 							},
@@ -771,7 +808,22 @@
 	],
 	"variable": [
 		{
-			"key": "heroku",
+			"key": "API_URL",
+			"value": "https://warm-falls-13177.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"key": "API_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "post_id",
 			"value": "",
 			"type": "string"
 		}
