@@ -573,7 +573,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"content\": \"我好想出國607\",\r\n    \"image\": [\r\n        \"https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1192&q=80\"\r\n    ],\r\n    \"tags\": [\r\n        \"好想出國\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"person\"\r\n}",
+									"raw": "{\r\n    \"content\": \"我好想出國611\",\r\n    \"image\": [\r\n        \"https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1192&q=80\"\r\n    ],\r\n    \"tags\": [\r\n        \"好想出國\",\r\n        \"覺得幸福\"\r\n    ],\r\n    \"type\": \"person\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -581,13 +581,38 @@
 									}
 								},
 								"url": {
-									"raw": "{{API_URL}}/post/{{post_id}}",
+									"raw": "{{API_URL}}/post/62a44417cc669b3f0dbe0895",
 									"host": [
 										"{{API_URL}}"
 									],
 									"path": [
 										"post",
-										"{{post_id}}"
+										"62a44417cc669b3f0dbe0895"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刪除貼文(非原PO不可修改)",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{API_TOKEN}}",
+										"type": "text",
+										"description": "需登入，且為該筆貼文的PO文者"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/post/62a44417cc669b3f0dbe0895",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"post",
+										"62a44417cc669b3f0dbe0895"
 									]
 								}
 							},
@@ -745,24 +770,6 @@
 					"name": "貼文相關",
 					"item": [
 						{
-							"name": "刪除所有貼文(非必要請勿使用)",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{LOCAL_API}}/admin/posts",
-									"host": [
-										"{{LOCAL_API}}"
-									],
-									"path": [
-										"admin",
-										"posts"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "刪除單筆貼文 by 貼文ID",
 							"request": {
 								"method": "DELETE",
@@ -776,6 +783,24 @@
 										"admin",
 										"post",
 										"629f06003e1388aa2d705e0c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刪除所有貼文(非必要請勿使用)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_API}}/admin/posts",
+									"host": [
+										"{{LOCAL_API}}"
+									],
+									"path": [
+										"admin",
+										"posts"
 									]
 								}
 							},
@@ -825,6 +850,11 @@
 		{
 			"key": "post_id",
 			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "loacl",
+			"value": "http://localhost:3000",
 			"type": "string"
 		}
 	]

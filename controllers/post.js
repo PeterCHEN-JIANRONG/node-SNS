@@ -98,8 +98,27 @@ const controller = {
     successHandle(res, allPosts);
   },
   async deleteOneById(req, res, next) {
+    const userId = req.user.id; // 用戶ID
+    const postId = req.params.id; // 貼文ID
+
+    const post = await Post.findById(postId);
+    if (post === null) {
+      return appError(next, "查無此 ID");
+    }
+
+    // 非本人無法刪除貼文
+    if (userId !== post.user.toString()) {
+      return appError(next, "不可刪除他人貼文");
+    }
+
+    const deletePost = await Post.findByIdAndDelete(postId); // 刪除貼文
+    await Comment.deleteMany({ post: postId }); // 刪除貼文的留言
+    successHandle(res, deletePost); // 單筆刪除成功
+  },
+  async deleteOneByIdUseAdmin(req, res, next) {
     const { id } = req.params;
-    const deletePost = await Post.findByIdAndDelete(id);
+    const deletePost = await Post.findByIdAndDelete(id); // 刪除貼文
+    await Comment.deleteMany({ post: id }); // 刪除貼文的留言
     if (deletePost !== null) {
       successHandle(res, deletePost); // 單筆刪除成功
     } else {
@@ -107,7 +126,7 @@ const controller = {
     }
   },
   async updateOneById(req, res, next) {
-    const { content, image, tags, type, likes, comments } = req.body;
+    const { content, image, tags, type } = req.body;
     const userId = req.user.id; // 用戶ID
     const postId = req.params.id; // 貼文ID
 
@@ -116,16 +135,18 @@ const controller = {
       image,
       tags,
       type,
-      likes,
-      comments,
     };
     const options = {
       new: true, // 回傳更新"後"的資料, default: false 回傳更新"前"的資料
       runValidators: true, // 驗證修改資料
     };
     const post = await Post.findById(postId);
+    if (!post) {
+      return appError(next, "查無此 ID");
+    }
+
+    // 非本人無法修改貼文
     if (userId !== post.user.toString()) {
-      // 若貼文的user 與 登入者Id 不同，則不可修改
       return appError(next, "不可修改他人貼文");
     }
 

@@ -27,6 +27,13 @@ router.patch(
   handleErrorAsync(PostController.updateOneById)
 );
 
+// 更新貼文 by 貼文Id
+router.delete(
+  "/post/:id",
+  isAuth,
+  handleErrorAsync(PostController.deleteOneById)
+);
+
 // 按讚貼文
 router.post(
   "/post/:id/likes",
@@ -51,7 +58,7 @@ router.post(
 // 刪除單筆貼文 by Id
 router.delete(
   "/admin/post/:id",
-  handleErrorAsync(PostController.deleteOneById)
+  handleErrorAsync(PostController.deleteOneByIdUseAdmin)
 );
 
 // 刪除所有貼文
